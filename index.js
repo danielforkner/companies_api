@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const apiRouter = require('./api');
 const PORT = process.env.PORT || 3000;
+const path = require('path');
 
 const morgan = require('morgan');
 
@@ -9,9 +10,12 @@ app.use(morgan('dev'));
 
 app.use('/api', apiRouter);
 
-app.get('/', (req, res) => {
-  res.send('<h1>Welcome to Companies API</h1>');
+app.use((err, req, res, next) => {
+  res.send(err);
 });
+
+// static
+app.use((_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 const { client } = require('./db');
 
