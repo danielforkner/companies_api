@@ -1,11 +1,11 @@
 // COMPANIES
 // create table companies (
-// 	id VARCHAR(50),
-// 	company_name VARCHAR(50),
-// 	industry VARCHAR(50),
+// 	id VARCHAR(50) UNIQUE NOT NULL,
+// 	company_name VARCHAR(255) UNIQUE NOT NULL,
+// 	industry VARCHAR(255),
 // 	market_cap VARCHAR(50),
-// 	logo_img VARCHAR(50),
-// 	street_address VARCHAR(50),
+// 	logo_img VARCHAR(255),
+// 	street_address VARCHAR(255),
 // 	state VARCHAR(50),
 // 	phone VARCHAR(50)
 // );
@@ -31,7 +31,7 @@
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('76J2I6WFZm61y&IBlT8jf', 'Breitenberg-Sauer', 'Major Pharmaceuticals', '$114.27M', 'http://dummyimage.com/127x100.png/cc0000/ffffff', '4532 Moland Point', 'KS', '785-703-5547');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('97SsVUFKHd64f&YMNjTvq', 'Rath-Connelly', 'Building Products', '$558.63M', 'http://dummyimage.com/246x100.png/cc0000/ffffff', '4384 Bayside Parkway', 'TX', '281-325-3412');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('45tVCWH9Rm76b&Q5bX3dx', 'Thompson-Carter', 'Major Pharmaceuticals', '$108.91M', 'http://dummyimage.com/159x100.png/ff4444/ffffff', '72957 Waubesa Center', 'FL', '321-732-3216');
-// insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('12JDCBN2Or68b&AAG11dg', 'Quigley-Parker', 'Electrical Products', '$6.47B', 'http://dummyimage.com/140x100.png/5fa2dd/ffffff', '85524 Blue Bill Park Junction', 'SD', '605-429-1690');
+// insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('12JDCBN2Or68b&AAG11'Quigley-Parker', 'Electrical Products', '$6.47B', 'http://dummyimage.com/140x100.png/5fa2dd/ffffff', '85524 Blue Bill Park Junction', 'SD', '605-429-1690');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('577bJcR33f45p&Z5q3cpq', 'Lemke, Bogisich and Ernser', 'Electric Utilities: Central', '$24.6B', 'http://dummyimage.com/126x100.png/cc0000/ffffff', '05 Melody Lane', 'MN', '763-855-2348');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('07ipYvIP7e64j&TGglpts', 'Braun LLC', 'Beverages (Production/Distribution)', '$2.19B', 'http://dummyimage.com/123x100.png/dddddd/000000', '2 Bay Drive', 'OH', '330-130-0745');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('428pIbM5Ss76y&VJpvxjq', 'Herman and Sons', 'Investment Bankers/Brokers/Service', '$82.28B', 'http://dummyimage.com/121x100.png/dddddd/000000', '2205 Waywood Lane', 'DC', '202-536-3286');
@@ -45,7 +45,6 @@
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('331hJRPXYr79o&M7G2bfr', 'Romaguera-Block', 'Real Estate Investment Trusts', '$3.51B', 'http://dummyimage.com/218x100.png/5fa2dd/ffffff', '6173 Forster Way', 'WA', '360-801-9884');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('62KzUgS82v99c&CAtvbch', 'Little, McGlynn and Grady', 'Major Pharmaceuticals', '$30.59M', 'http://dummyimage.com/129x100.png/cc0000/ffffff', '8 Superior Court', 'DC', '202-406-8482');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('47kfPhGVLn25p&GT0k6pk', 'Weber LLC', 'Major Banks', '$300.24M', 'http://dummyimage.com/132x100.png/5fa2dd/ffffff', '5819 Bartillon Pass', 'AL', '205-598-7487');
-// insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('14rQMCFQTg71g&RRJLWsl', 'Effertz Group', 'Automotive Aftermarket', '$3.68B', 'http://dummyimage.com/155x100.png/ff4444/ffffff', '371 Bowman Center', 'SC', '803-670-3599');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('04R7LXR6Ia65a&VZCGyih', 'Renner, Boyle and Homenick', 'Hospital/Nursing Management', '$11.13B', 'http://dummyimage.com/227x100.png/ff4444/ffffff', '1561 Mifflin Parkway', 'TX', '214-997-0755');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('23tCDNIO6r20t&ATAVNof', 'Jast, Kerluke and Homenick', 'Medical Specialities', '$14.5B', 'http://dummyimage.com/204x100.png/dddddd/000000', '9 Barby Pass', 'MO', '314-902-9974');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('25MAF3H85e61z&Z5XF6iv', 'Larkin and Sons', 'Food Distributors', '$387.37M', 'http://dummyimage.com/139x100.png/dddddd/000000', '5 Dahle Crossing', 'WV', '304-715-6168');
@@ -65,7 +64,7 @@
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('01fsNyJEDs52b&X0kXMwm', 'Powlowski, Walter and Moore', 'Industrial Specialties', '$70.59M', 'http://dummyimage.com/180x100.png/ff4444/ffffff', '4445 Grasskamp Park', 'IL', '312-204-8382');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('73idM7QP4o66t&JMmL4ai', 'Stamm LLC', 'Industrial Machinery/Components', '$204.83M', 'http://dummyimage.com/211x100.png/5fa2dd/ffffff', '088 Shasta Trail', 'IN', '765-479-0400');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('93srUSL1Yt42j&KSlsVpb', 'Wunsch, Schmitt and Renner', 'Industrial Machinery/Components', '$708.76M', 'http://dummyimage.com/220x100.png/5fa2dd/ffffff', '4948 Esker Point', 'MO', '314-138-3222');
-// insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('70ayDADAXw95w&QGbVqon', 'Quigley LLC', 'Major Pharmaceuticals', '$484.41M', 'http://dummyimage.com/115x100.png/5fa2dd/ffffff', '670 Dixon Pass', 'NY', '917-790-0657');
+// insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('70ayDADAXw95w&QGbVq'Quigley LLC', 'Major Pharmaceuticals', '$484.41M', 'http://dummyimage.com/115x100.png/5fa2dd/ffffff', '670 Dixon Pass', 'NY', '917-790-0657');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('29CPLQZX7l27l&ATXLyth', 'Orn-Murphy', 'Auto Parts:O.E.M.', '$506.02M', 'http://dummyimage.com/153x100.png/dddddd/000000', '38026 Aberg Avenue', 'GA', '404-249-0574');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('70EADpH7Hg39g&BUqA6cz', 'Stoltenberg Inc', 'Restaurants', '$6.31M', 'http://dummyimage.com/238x100.png/ff4444/ffffff', '17 Village Point', 'AL', '256-829-9266');
 // insert into companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone) values ('43h5VGVUEi65v&BNxpCtd', 'Hoppe Group', 'Consumer Specialties', '$1.51B', 'http://dummyimage.com/171x100.png/5fa2dd/ffffff', '78 Straubel Pass', 'PA', '814-372-8547');
@@ -110,107 +109,115 @@
 
 // FINANCIALS
 // create table financials (
-//     id VARCHAR(50),
-//     company_id VARCHAR(50),
+//     id SERIAL PRIMARY KEY,
+//     company_id VARCHAR(50) REFERENCES companies(id),
 //     quarter VARCHAR(50),
 //     cogs VARCHAR(50),
 //     profit_margin VARCHAR(50),
 //     revenue VARCHAR(50),
 // )
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (1, 3, 'Q122', 87, 2.328, 89.02536);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (2, 29, 'Q122', 85, 4.716, 89.0086);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (3, 94, 'Q122', 127, 10.479, 140.30833);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (4, 90, 'Q122', 132, 10.035, 145.2462);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (5, 40, 'Q122', 86, 3.575, 89.0745);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (6, 90, 'Q122', 14, 5.417, 14.75838);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (7, 100, 'Q122', 97, 1.855, 98.79935);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (8, 78, 'Q122', 20, 10.723, 22.1446);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (9, 20, 'Q122', 75, 0.164, 75.123);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (10, 10, 'Q122', 120, 3.481, 124.1772);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (11, 59, 'Q122', 72, 1.547, 73.11384);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (12, 92, 'Q122', 126, 0.547, 126.68922);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (13, 87, 'Q122', 64, 9.386, 70.00704);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (14, 68, 'Q122', 36, 10.299, 39.70764);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (15, 19, 'Q122', 82, 9.515, 89.8023);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (16, 1, 'Q122', 28, 11.746, 31.28888);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (17, 99, 'Q122', 54, 7.7, 58.158);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (18, 54, 'Q122', 44, 5.301, 46.33244);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (19, 73, 'Q122', 111, 9.63, 121.6893);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (20, 12, 'Q122', 17, 11.296, 18.92032);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (21, 62, 'Q122', 127, 5.492, 133.97484);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (22, 25, 'Q122', 13, 8.741, 14.13633);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (23, 78, 'Q122', 37, 5.149, 38.90513);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (24, 3, 'Q122', 26, 0.648, 26.16848);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (25, 16, 'Q122', 153, 6.644, 163.16532);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (26, 51, 'Q122', 148, 11.987, 165.74076);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (27, 9, 'Q122', 78, 2.013, 79.57014);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (28, 52, 'Q122', 52, 8.063, 56.19276);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (29, 48, 'Q122', 69, 10.937, 76.54653);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (30, 36, 'Q122', 89, 4.403, 92.91867);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (31, 86, 'Q122', 11, 2.547, 11.28017);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (32, 99, 'Q122', 52, 8.663, 56.50476);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (33, 72, 'Q122', 106, 4.91, 111.2046);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (34, 79, 'Q122', 23, 0.214, 23.04922);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (35, 1, 'Q122', 117, 8.312, 126.72504);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (36, 40, 'Q122', 87, 2.628, 89.28636);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (37, 76, 'Q122', 80, 9.987, 87.9896);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (38, 73, 'Q122', 102, 7.861, 110.01822);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (39, 63, 'Q122', 49, 2.054, 50.00646);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (40, 12, 'Q122', 114, 8.466, 123.65124);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (41, 68, 'Q122', 11, 6.273, 11.69003);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (42, 69, 'Q122', 156, 5.447, 164.49732);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (43, 89, 'Q122', 123, 10.073, 135.38979);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (44, 53, 'Q122', 69, 9.906, 75.83514);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (45, 35, 'Q122', 53, 0.299, 53.15847);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (46, 9, 'Q122', 57, 2.049, 58.16793);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (47, 3, 'Q122', 50, 6.043, 53.0215);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (48, 35, 'Q122', 104, 7.519, 111.81976);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (49, 98, 'Q122', 119, 1.633, 120.94327);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (50, 51, 'Q122', 127, 10.994, 140.96238);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (51, 66, 'Q122', 144, 4.072, 149.86368);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (52, 17, 'Q122', 95, 11.202, 105.6419);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (53, 8, 'Q122', 128, 11.564, 142.80192);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (54, 58, 'Q122', 25, 3.763, 25.94075);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (55, 89, 'Q122', 77, 4.083, 80.14391);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (56, 52, 'Q122', 21, 1.062, 21.22302);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (57, 54, 'Q122', 98, 7.237, 105.09226);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (58, 32, 'Q122', 102, 0.843, 102.85986);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (59, 33, 'Q122', 51, 7.79, 54.9729);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (60, 44, 'Q122', 116, 1.689, 117.95924);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (61, 69, 'Q122', 94, 9.66, 103.0804);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (62, 66, 'Q122', 36, 4.046, 37.45656);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (63, 33, 'Q122', 39, 4.947, 40.92933);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (64, 57, 'Q122', 154, 0.585, 154.9009);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (65, 49, 'Q122', 19, 11.567, 21.19773);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (66, 16, 'Q122', 46, 4.749, 48.18454);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (67, 5, 'Q122', 99, 9.198, 108.10602);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (68, 100, 'Q122', 44, 8.5, 47.74);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (69, 100, 'Q122', 13, 11.47, 14.4911);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (70, 44, 'Q122', 47, 8.323, 50.91181);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (71, 93, 'Q122', 80, 5.526, 84.4208);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (72, 14, 'Q122', 103, 6.485, 109.67955);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (73, 70, 'Q122', 63, 4.908, 66.09204);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (74, 79, 'Q122', 130, 8.722, 141.3386);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (75, 42, 'Q122', 142, 8.304, 153.79168);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (76, 66, 'Q122', 18, 4.452, 18.80136);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (77, 6, 'Q122', 143, 0.571, 143.81653);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (78, 97, 'Q122', 21, 5.374, 22.12854);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (79, 22, 'Q122', 54, 10.19, 59.5026);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (80, 14, 'Q122', 136, 0.644, 136.87584);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (81, 11, 'Q122', 132, 5.343, 139.05276);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (82, 10, 'Q122', 119, 5.523, 125.57237);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (83, 86, 'Q122', 83, 0.848, 83.70384);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (84, 97, 'Q122', 128, 4.281, 133.47968);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (85, 79, 'Q122', 113, 11.558, 126.06054);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (86, 61, 'Q122', 106, 6.666, 113.06596);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (87, 95, 'Q122', 53, 1.787, 53.94711);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (88, 77, 'Q122', 70, 10.849, 77.5943);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (89, 68, 'Q122', 136, 0.087, 136.11832);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (90, 92, 'Q122', 100, 3.864, 103.864);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (91, 4, 'Q122', 23, 6.039, 24.38897);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (92, 98, 'Q122', 83, 6.735, 88.59005);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (93, 48, 'Q122', 153, 7.758, 164.86974);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (94, 38, 'Q122', 115, 9.279, 125.67085);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (95, 43, 'Q122', 50, 2.664, 51.332);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (96, 27, 'Q122', 35, 2.447, 35.85645);
-// insert into financials (id, company_id, quarter, cogs, profit_margin, revenue) values (97, 70, 'Q122', 156, 9.985, 171.5766);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('21ImC8IUCp19m&QEfdBbg','Q122', 87, 2.328, 89.02536);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('739bStMZKr28j&IV4PGuj','Q122', 85, 4.716, 89.0086);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('53FyQxFNZe88o&KGeWrae','Q122', 127, 10.479, 140.30833);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('48jJZAVGXs57k&P9nPRif','Q122', 132, 10.035, 145.2462);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('22E0GiH81b92r&B2uk7vf','Q122', 86, 3.575, 89.0745);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('49phRJKT8t50v&ONnHfjq','Q122', 14, 5.417, 14.75838);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('43t3T9X09v76t&BInmQtp', 'Q122', 97, 1.855, 98.79935);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('50ZcOIAL0u65y&JKVYgbu','Q122', 20, 10.723, 22.1446);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('13DSSYNH7d10c&IONcLii','Q122', 75, 0.164, 75.123);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('083jSxV4Kn27m&PKAJxpg', 'Q122', 120, 3.481, 124.1772);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('632gWmIW6r17i&EQNsenm', 'Q122', 72, 1.547, 73.11384);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('19NeYUPUEr56e&JOGhDqv', 'Q122', 126, 0.547, 126.68922);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('14fbAJQ2Fp19m&ADscUuc', 'Q122', 64, 9.386, 70.00704);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('53AUR0WASu35y&WV5lGit', 'Q122', 36, 10.299, 39.70764);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('13vtH7JC5b60r&X4i6enh', 'Q122', 82, 9.515, 89.8023);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('59mPV2KFKl58r&SAc66do','Q122', 28, 11.746, 31.28888);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('23J6TgD8Kg94o&EM457ae', 'Q122', 54, 7.7, 58.158);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('02yWGrT2Xg21s&IWgRycf', 'Q122', 44, 5.301, 46.33244);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('400IDTJKAd95v&UZqdqls', 'Q122', 111, 9.63, 121.6893);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('76J2I6WFZm61y&IBlT8jf', 'Q122', 17, 11.296, 18.92032);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('97SsVUFKHd64f&YMNjTvq', 'Q122', 127, 5.492, 133.97484);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('45tVCWH9Rm76b&Q5bX3dx', 'Q122', 13, 8.741, 14.13633);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('12JDCBN2Or68b&AAG11dg', 'Q122', 37, 5.149, 38.90513);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('577bJcR33f45p&Z5q3cpq','Q122', 26, 0.648, 26.16848);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('07ipYvIP7e64j&TGglpts', 'Q122', 153, 6.644, 163.16532);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('428pIbM5Ss76y&VJpvxjq', 'Q122', 148, 11.987, 165.74076);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('868hAXNXQe78f&XS9PSgn','Q122', 78, 2.013, 79.57014);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('70f7ZcNATt29c&QFvRzng', 'Q122', 52, 8.063, 56.19276);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('04okEhJSNt44u&HBXpzao', 'Q122', 69, 10.937, 76.54653);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('62dtX9VX9l88z&YV0Uzoz', 'Q122', 89, 4.403, 92.91867);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('910qTyP49b71q&MPlU6mr', 'Q122', 11, 2.547, 11.28017);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('08x4TaL28u78k&AJtTfsw', 'Q122', 52, 8.663, 56.50476);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('309dFEHPPk45a&QDWxwqp', 'Q122', 106, 4.91, 111.2046);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('331hJRPXYr79o&M7G2bfr', 'Q122', 23, 0.214, 23.04922);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('62KzUgS82v99c&CAtvbch','Q122', 117, 8.312, 126.72504);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('47kfPhGVLn25p&GT0k6pk', 'Q122', 87, 2.628, 89.28636);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('04R7LXR6Ia65a&VZCGyih', 'Q122', 80, 9.987, 87.9896);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('23tCDNIO6r20t&ATAVNof', 'Q122', 102, 7.861, 110.01822);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('25MAF3H85e61z&Z5XF6iv', 'Q122', 49, 2.054, 50.00646);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('73umWxKTVi38d&J5mbqmx', 'Q122', 114, 8.466, 123.65124);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('67NNCAFZMz76g&JTWWEoi', 'Q122', 11, 6.273, 11.69003);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('08r7D1L16m59w&UVWnqcy', 'Q122', 156, 5.447, 164.49732);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('96GeBHQRDr38c&D0PgGlr', 'Q122', 123, 10.073, 135.38979);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('46knS6KGSv42k&M6Kysyi', 'Q122', 69, 9.906, 75.83514);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('83LZWkH80z52j&N6qVGlj', 'Q122', 53, 0.299, 53.15847);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('27X1B7HT4h19s&HUZmXek','Q122', 57, 2.049, 58.16793);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('51Z8EhVQEm53v&KYb7ied','Q122', 50, 6.043, 53.0215);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('59KjVfWVZv59g&JTaXorq', 'Q122', 104, 7.519, 111.81976);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('79xnY9ZSHw42x&OGcsmsz', 'Q122', 119, 1.633, 120.94327);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('52FpTXTY4a98l&B3jbfde', 'Q122', 127, 10.994, 140.96238);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('08RkRmSV3s48w&DXngexw', 'Q122', 144, 4.072, 149.86368);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('50mfIHZTKm51o&K2JTTih', 'Q122', 95, 11.202, 105.6419);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('01fsNyJEDs52b&X0kXMwm','Q122', 128, 11.564, 142.80192);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('73idM7QP4o66t&JMmL4ai', 'Q122', 25, 3.763, 25.94075);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('93srUSL1Yt42j&KSlsVpb', 'Q122', 77, 4.083, 80.14391);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('70ayDADAXw95w&QGbVqon', 'Q122', 21, 1.062, 21.22302);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('29CPLQZX7l27l&ATXLyth', 'Q122', 98, 7.237, 105.09226);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('70EADpH7Hg39g&BUqA6cz', 'Q122', 102, 0.843, 102.85986);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('43h5VGVUEi65v&BNxpCtd', 'Q122', 51, 7.79, 54.9729);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('87N2BZIELb65b&MOChEjy', 'Q122', 116, 1.689, 117.95924);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('50uwRmJP0r92g&XLGoIlf', 'Q122', 94, 9.66, 103.0804);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('04CXGBD95p64j&GFsHzvf', 'Q122', 36, 4.046, 37.45656);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('80IvXlPHJo49z&FHORuqr', 'Q122', 39, 4.947, 40.92933);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('85bSJLHJ5s79o&DDEMGej', 'Q122', 154, 0.585, 154.9009);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('56FbAoF7Td09a&WO4mOlk', 'Q122', 19, 11.567, 21.19773);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('04hlFAJB4f44l&BTr83se', 'Q122', 46, 4.749, 48.18454);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('83okZLL6Yw26b&X41lsvr','Q122', 99, 9.198, 108.10602);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('33QARoW9Jk32a&LWSjenb',  'Q122', 44, 8.5, 47.74);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('42BRYEJNWl10r&N0WA7ol',  'Q122', 13, 11.47, 14.4911);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('056qHnE87u36l&KDxSwxn', 'Q122', 47, 8.323, 50.91181);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('79aZGAET2g29f&VJis6nj', 'Q122', 80, 5.526, 84.4208);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('9986DuWY1j97c&U0GLgio', 'Q122', 103, 6.485, 109.67955);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('37wmWQCCZp61x&TOjaIzn', 'Q122', 63, 4.908, 66.09204);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('21IyLCU9Mj23n&YFs0zno', 'Q122', 130, 8.722, 141.3386);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('06gISyNBJz59v&KWDIAjb', 'Q122', 142, 8.304, 153.79168);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('46s1XpUKKn53u&XWT5vir', 'Q122', 18, 4.452, 18.80136);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('92AWJaTG8d09a&V8MOTew','Q122', 143, 0.571, 143.81653);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('94cWX6LWOf35e&IP5WRix', 'Q122', 21, 5.374, 22.12854);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('32uYVnR21e34g&CWi72go', 'Q122', 54, 10.19, 59.5026);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('37zoFSZ0Qp21b&KIdHmia', 'Q122', 136, 0.644, 136.87584);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('0196K6DELx87x&C16Mxue', 'Q122', 132, 5.343, 139.05276);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('49uTYIALKv36c&IMfFGho', 'Q122', 119, 5.523, 125.57237);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('98TkZdFYDm27z&SEP61wf', 'Q122', 83, 0.848, 83.70384);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('75thXYSTSt13u&R9VIEtb', 'Q122', 128, 4.281, 133.47968);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('01HaCOUE4u11b&G4NpYns', 'Q122', 113, 11.558, 126.06054);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('24ObOmV14d68x&CKRzzdu', 'Q122', 106, 6.666, 113.06596);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('78VLC4RK7u54c&E4cYDxs', 'Q122', 53, 1.787, 53.94711);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('2721TSRQKs74b&ITIsPwk', 'Q122', 70, 10.849, 77.5943);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('02iEPuHXUe30m&WAjyazb', 'Q122', 136, 0.087, 136.11832);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('62K5FzHLTz46t&MRCe0sm', 'Q122', 100, 3.864, 103.864);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('98ZfSVVC8q34w&VJ36qcx','Q122', 23, 6.039, 24.38897);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('23rRVxB4Cg76j&J3dMyal', 'Q122', 83, 6.735, 88.59005);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('87XnAhJDFp70e&Q4jwgxs', 'Q122', 153, 7.758, 164.86974);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('40v8F0NIYr72v&ZCQETgf', 'Q122', 115, 9.279, 125.67085);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('39RpBmNQUi74u&MBAsNvn', 'Q122', 50, 2.664, 51.332);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('72GQBpJOFv27j&FYQJLra', 'Q122', 35, 2.447, 35.85645);
+// insert into financials (company_id, quarter, cogs, profit_margin, revenue) values ('39ckZ3XONk29k&XBE15zr', 'Q122', 156, 9.985, 171.5766)
+
+// Get new queries for financials by replacing the company_id from mock data with allIds
+// const allIds = [{"id":"21ImC8IUCp19m&QEfdBbg"},{"id":"739bStMZKr28j&IV4PGuj"},{"id":"53FyQxFNZe88o&KGeWrae"},{"id":"48jJZAVGXs57k&P9nPRif"},{"id":"22E0GiH81b92r&B2uk7vf"},{"id":"49phRJKT8t50v&ONnHfjq"},{"id":"43t3T9X09v76t&BInmQtp"},{"id":"50ZcOIAL0u65y&JKVYgbu"},{"id":"13DSSYNH7d10c&IONcLii"},{"id":"083jSxV4Kn27m&PKAJxpg"},{"id":"632gWmIW6r17i&EQNsenm"},{"id":"19NeYUPUEr56e&JOGhDqv"},{"id":"14fbAJQ2Fp19m&ADscUuc"},{"id":"53AUR0WASu35y&WV5lGit"},{"id":"13vtH7JC5b60r&X4i6enh"},{"id":"59mPV2KFKl58r&SAc66do"},{"id":"23J6TgD8Kg94o&EM457ae"},{"id":"02yWGrT2Xg21s&IWgRycf"},{"id":"400IDTJKAd95v&UZqdqls"},{"id":"76J2I6WFZm61y&IBlT8jf"},{"id":"97SsVUFKHd64f&YMNjTvq"},{"id":"45tVCWH9Rm76b&Q5bX3dx"},{"id":"12JDCBN2Or68b&AAG11dg"},{"id":"577bJcR33f45p&Z5q3cpq"},{"id":"07ipYvIP7e64j&TGglpts"},{"id":"428pIbM5Ss76y&VJpvxjq"},{"id":"868hAXNXQe78f&XS9PSgn"},{"id":"70f7ZcNATt29c&QFvRzng"},{"id":"04okEhJSNt44u&HBXpzao"},{"id":"62dtX9VX9l88z&YV0Uzoz"},{"id":"910qTyP49b71q&MPlU6mr"},{"id":"08x4TaL28u78k&AJtTfsw"},{"id":"309dFEHPPk45a&QDWxwqp"},{"id":"331hJRPXYr79o&M7G2bfr"},{"id":"62KzUgS82v99c&CAtvbch"},{"id":"47kfPhGVLn25p&GT0k6pk"},{"id":"04R7LXR6Ia65a&VZCGyih"},{"id":"23tCDNIO6r20t&ATAVNof"},{"id":"25MAF3H85e61z&Z5XF6iv"},{"id":"73umWxKTVi38d&J5mbqmx"},{"id":"67NNCAFZMz76g&JTWWEoi"},{"id":"08r7D1L16m59w&UVWnqcy"},{"id":"96GeBHQRDr38c&D0PgGlr"},{"id":"46knS6KGSv42k&M6Kysyi"},{"id":"83LZWkH80z52j&N6qVGlj"},{"id":"27X1B7HT4h19s&HUZmXek"},{"id":"51Z8EhVQEm53v&KYb7ied"},{"id":"59KjVfWVZv59g&JTaXorq"},{"id":"79xnY9ZSHw42x&OGcsmsz"},{"id":"52FpTXTY4a98l&B3jbfde"},{"id":"08RkRmSV3s48w&DXngexw"},{"id":"50mfIHZTKm51o&K2JTTih"},{"id":"01fsNyJEDs52b&X0kXMwm"},{"id":"73idM7QP4o66t&JMmL4ai"},{"id":"93srUSL1Yt42j&KSlsVpb"},{"id":"70ayDADAXw95w&QGbVqon"},{"id":"29CPLQZX7l27l&ATXLyth"},{"id":"70EADpH7Hg39g&BUqA6cz"},{"id":"43h5VGVUEi65v&BNxpCtd"},{"id":"87N2BZIELb65b&MOChEjy"},{"id":"50uwRmJP0r92g&XLGoIlf"},{"id":"04CXGBD95p64j&GFsHzvf"},{"id":"80IvXlPHJo49z&FHORuqr"},{"id":"85bSJLHJ5s79o&DDEMGej"},{"id":"56FbAoF7Td09a&WO4mOlk"},{"id":"04hlFAJB4f44l&BTr83se"},{"id":"83okZLL6Yw26b&X41lsvr"},{"id":"33QARoW9Jk32a&LWSjenb"},{"id":"42BRYEJNWl10r&N0WA7ol"},{"id":"056qHnE87u36l&KDxSwxn"},{"id":"79aZGAET2g29f&VJis6nj"},{"id":"9986DuWY1j97c&U0GLgio"},{"id":"37wmWQCCZp61x&TOjaIzn"},{"id":"21IyLCU9Mj23n&YFs0zno"},{"id":"06gISyNBJz59v&KWDIAjb"},{"id":"46s1XpUKKn53u&XWT5vir"},{"id":"92AWJaTG8d09a&V8MOTew"},{"id":"94cWX6LWOf35e&IP5WRix"},{"id":"32uYVnR21e34g&CWi72go"},{"id":"37zoFSZ0Qp21b&KIdHmia"},{"id":"0196K6DELx87x&C16Mxue"},{"id":"49uTYIALKv36c&IMfFGho"},{"id":"98TkZdFYDm27z&SEP61wf"},{"id":"75thXYSTSt13u&R9VIEtb"},{"id":"01HaCOUE4u11b&G4NpYns"},{"id":"24ObOmV14d68x&CKRzzdu"},{"id":"78VLC4RK7u54c&E4cYDxs"},{"id":"2721TSRQKs74b&ITIsPwk"},{"id":"02iEPuHXUe30m&WAjyazb"},{"id":"62K5FzHLTz46t&MRCe0sm"},{"id":"98ZfSVVC8q34w&VJ36qcx"},{"id":"23rRVxB4Cg76j&J3dMyal"},{"id":"87XnAhJDFp70e&Q4jwgxs"},{"id":"40v8F0NIYr72v&ZCQETgf"},{"id":"39RpBmNQUi74u&MBAsNvn"},{"id":"72GQBpJOFv27j&FYQJLra"},{"id":"39ckZ3XONk29k&XBE15zr"}]
+
+// let newqueries = financialQueries.map((query, idx) => {
+//     return query.substring(0, 82) + `('${allIds[idx].id}', ` + query.substring(83)
+// })
+// console.log(newqueries)

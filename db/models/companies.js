@@ -31,8 +31,18 @@ const getCompanyById = async (id) => {
   }
 };
 
+const getAllCompanyIds = async () => {
+  try {
+    const { rows } = await client.query(`SELECT id FROM companies`)
+    return rows
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 module.exports = {
   getAllCompanies,
   getRandomCompany,
   getCompanyById,
+  getAllCompanyIds
 };

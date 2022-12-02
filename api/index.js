@@ -1,6 +1,21 @@
-const { Companies } = require('../db');
+const { Companies, Financials } = require('../db');
 
 const apiRouter = require('express').Router();
+
+apiRouter.get('/financials', async (_, res) => {
+  let financials = await Financials.getAllFinancials();
+  res.send(financials)
+})
+
+apiRouter.get('/companies/allIds', async (_, res) => {
+  let ids = await Companies.getAllCompanyIds();
+  res.send(ids)
+})
+
+apiRouter.get('/companies/random', async (_, res) => {
+  let company = await Companies.getRandomCompany();
+  res.send(company);
+});
 
 apiRouter.get('/companies/:id', async (req, res, next) => {
   const { id } = req.params;
@@ -15,11 +30,6 @@ apiRouter.get('/companies/:id', async (req, res, next) => {
     res.status(500);
     next(error);
   }
-});
-
-apiRouter.get('/companies/random', async (_, res) => {
-  let company = await Companies.getRandomCompany();
-  res.send(company);
 });
 
 apiRouter.get('/companies', async (_, res) => {
