@@ -3,9 +3,9 @@ const app = express();
 const apiRouter = require('./api');
 const PORT = process.env.PORT || 3000;
 const path = require('path');
-
 const morgan = require('morgan');
 
+// middleware
 app.use(morgan('dev'));
 
 app.use('/api', apiRouter);
@@ -17,8 +17,10 @@ app.use((err, req, res, next) => {
 // static
 app.use((_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
+// db
 const { client } = require('./db');
 
+// server
 app.listen(PORT, async () => {
   console.log('listening...' + ' on port:', +PORT);
   try {
