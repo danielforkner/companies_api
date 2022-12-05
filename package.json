@@ -4,7 +4,8 @@
   "description": "an api layer for fake company data",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build:react": "cd react-example && npm run build && cd .. && node index.js"
   },
   "author": "danielforkner",
   "license": "ISC",

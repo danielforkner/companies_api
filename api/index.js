@@ -2,6 +2,12 @@ const { Companies, Financials } = require('../db');
 
 const apiRouter = require('express').Router();
 
+apiRouter.get('/financials/:id', async (req, res) => {
+  const { id } = req.params;
+  let financials = await Financials.getFinancialsById(id);
+  res.send(financials)
+})
+
 apiRouter.get('/financials', async (_, res) => {
   let financials = await Financials.getAllFinancials();
   res.send(financials)
