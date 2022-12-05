@@ -16,8 +16,10 @@ app.use((err, req, res, next) => {
 });
 
 // static
-app.use('/react-example', (_, res) => res.sendFile(path.join(__dirname, 'react-example/public', 'index.html')));
-app.use((_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.use(express.static('public'))
+app.use(express.static('react-example/build'))
+app.use('/react-example', (_, res) => res.sendFile(path.join(__dirname, 'react-example/build', 'index.html')));
+app.use('/', (_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 // db
 const { client } = require('./db');
