@@ -6,8 +6,12 @@ const Industries = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      let industryList = await getIndustries();
-      setIndustries(industryList);
+      try {
+        let industryList = await getIndustries();
+        setIndustries(industryList);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     // window.addEventListener('hashchange', loadFinancials);

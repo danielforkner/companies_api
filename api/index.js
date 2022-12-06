@@ -2,38 +2,50 @@ const { Companies, Financials, Industries } = require('../db');
 
 const apiRouter = require('express').Router();
 
-apiRouter.get('/financials/:id', async (req, res) => {
+apiRouter.get('/financials/:id', async (req, res, next) => {
   const { id } = req.params;
-  let financials = await Financials.getFinancialsById(id);
-  res.send(financials);
+  try {
+    let financials = await Financials.getFinancialsById(id);
+    res.send(financials);
+  } catch (error) {
+    next(error);
+  }
 });
 
-apiRouter.get('/financials', async (_, res) => {
+apiRouter.get('/financials', async (_, res, next) => {
   try {
     let financials = await Financials.getAllFinancials();
     res.send(financials);
   } catch (error) {
-    throw new Error(error);
+    next(error);
   }
 });
 
-apiRouter.get('/industries', async (_, res) => {
+apiRouter.get('/industries', async (_, res, next) => {
   try {
     let industries = await Industries.getIndustries();
     res.send(industries);
   } catch (error) {
-    throw new Error(error);
+    next(error);
   }
 });
 
-apiRouter.get('/companies/allIds', async (_, res) => {
-  let ids = await Companies.getAllCompanyIds();
-  res.send(ids);
+apiRouter.get('/companies/allIds', async (_, res, next) => {
+  try {
+    let ids = await Companies.getAllCompanyIds();
+    res.send(ids);
+  } catch (error) {
+    next(error);
+  }
 });
 
-apiRouter.get('/companies/random', async (_, res) => {
-  let company = await Companies.getRandomCompany();
-  res.send(company);
+apiRouter.get('/companies/random', async (_, res, next) => {
+  try {
+    let company = await Companies.getRandomCompany();
+    res.send(company);
+  } catch (error) {
+    next(error);
+  }
 });
 
 apiRouter.get('/companies/:id', async (req, res, next) => {
@@ -51,9 +63,13 @@ apiRouter.get('/companies/:id', async (req, res, next) => {
   }
 });
 
-apiRouter.get('/companies', async (_, res) => {
-  let companies = await Companies.getAllCompanies();
-  res.send(companies);
+apiRouter.get('/companies', async (_, res, next) => {
+  try {
+    let companies = await Companies.getAllCompanies();
+    res.send(companies);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = apiRouter;

@@ -5,7 +5,7 @@ const getAllCompanies = async () => {
     const { rows } = await client.query('SELECT * FROM companies');
     return rows;
   } catch (error) {
-    return error;
+    throw new Error(error);
   }
 };
 
@@ -16,7 +16,7 @@ const getRandomCompany = async () => {
     } = await client.query(`SELECT * FROM companies ORDER BY RANDOM() LIMIT 1`);
     return company;
   } catch (error) {
-    return error;
+    throw new Error(error);
   }
 };
 
@@ -27,22 +27,22 @@ const getCompanyById = async (id) => {
     } = await client.query(`SELECT * FROM companies WHERE id=$1`, [id]);
     return company;
   } catch (error) {
-    return error;
+    throw new Error(error);
   }
 };
 
 const getAllCompanyIds = async () => {
   try {
-    const { rows } = await client.query(`SELECT id FROM companies`)
-    return rows
+    const { rows } = await client.query(`SELECT id FROM companies`);
+    return rows;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
 
 module.exports = {
   getAllCompanies,
   getRandomCompany,
   getCompanyById,
-  getAllCompanyIds
+  getAllCompanyIds,
 };

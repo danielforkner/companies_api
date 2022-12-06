@@ -10,12 +10,20 @@ const Companies = ({ companies, setCompanies }) => {
       let id = window.location.hash.slice(1);
       if (!id) return;
       setSelectedCompany(id);
-      let financials = await getFinancialsById(id);
-      setFinancials(financials);
+      try {
+        let financials = await getFinancialsById(id);
+        setFinancials(financials);
+      } catch (error) {
+        console.error(error);
+      }
     };
     const loadData = async () => {
-      let companyList = await getCompanies();
-      setCompanies(companyList);
+      try {
+        let companyList = await getCompanies();
+        setCompanies(companyList);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     window.addEventListener('hashchange', loadFinancials);

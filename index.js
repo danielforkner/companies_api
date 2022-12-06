@@ -30,6 +30,10 @@ app.use('/', (_, res) =>
 // db
 const { client } = require('./db');
 
+app.use((err, req, res, next) => {
+  res.status(500).send(err);
+});
+
 // server
 app.listen(PORT, async () => {
   console.log('listening...' + ' on port:', +PORT);

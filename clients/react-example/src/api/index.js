@@ -6,7 +6,7 @@ export const getCompanies = async () => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 };
 
@@ -16,7 +16,7 @@ export const getIndustries = async () => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 };
 
@@ -26,6 +26,6 @@ export const getFinancialsById = async (id) => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 };
