@@ -2,7 +2,9 @@ const client = require('../client');
 
 const getAllCompanies = async () => {
   try {
-    const { rows } = await client.query('SELECT * FROM companies');
+    const { rows } = await client.query(
+      'SELECT * FROM companies ORDER BY company_name ASC'
+    );
     return rows;
   } catch (error) {
     throw new Error(error);
