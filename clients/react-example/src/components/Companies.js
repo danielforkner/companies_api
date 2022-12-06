@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCompanies, getFinancialsById } from '../api';
+import Data from './Data';
 
 const Companies = ({ companies, setCompanies }) => {
   const [selectedCompany, setSelectedCompany] = useState('');
@@ -39,6 +40,7 @@ const Companies = ({ companies, setCompanies }) => {
 
   return (
     <div>
+      <Data data={{ type: 'company-financials', data: financials }} />
       <div className="Companies-list">
         <h1>Companies</h1>
         {companies.map((company) => (
@@ -47,26 +49,7 @@ const Companies = ({ companies, setCompanies }) => {
           </li>
         ))}
       </div>
-      <div className="Financials-list">
-        <table>
-          <tr>
-            <th>Quarter</th>
-            <th>Revenue</th>
-            <th>COGS</th>
-            <th>Margin</th>
-            <th>Profit</th>
-          </tr>
-          {financials.map((report) => (
-            <tr>
-              <td>{report.quarter}</td>
-              <td>${parseFloat(report.revenue).toFixed(2)}mil</td>
-              <td>${parseFloat(report.cogs).toFixed(2)}mil</td>
-              <td>{parseFloat(report.profit_margin).toFixed(2)}%</td>
-              <td>${parseFloat(report.revenue - report.cogs).toFixed(2)}mil</td>
-            </tr>
-          ))}
-        </table>
-      </div>
+      <div className="Financials-list"></div>
     </div>
   );
 };
