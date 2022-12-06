@@ -7,8 +7,9 @@ const Industries = ({
   setIndustries,
   companies,
   setCompanies,
+  marketCaps,
+  setMarketCaps,
 }) => {
-  const [marketCaps, setMarketCaps] = useState({});
   const [isMarketCap, setIsMarketCap] = useState(false);
   const toggleMarketCap = () => setIsMarketCap(!isMarketCap);
 
@@ -21,12 +22,10 @@ const Industries = ({
       if (type === 'M') {
         cap /= 1000;
       }
-      console.log(cap);
       newMarketCaps[company.industry]
         ? (newMarketCaps[company.industry] += cap)
         : (newMarketCaps[company.industry] = cap);
     });
-    console.log(newMarketCaps);
     setMarketCaps(newMarketCaps);
   };
 
@@ -46,16 +45,10 @@ const Industries = ({
       setIsLoading(false);
     };
 
-    // window.addEventListener('hashchange', loadFinancials);
-    // loadFinancials();
     if (!industries.length) {
       loadData();
       getMarketCaps();
     }
-
-    return () => {
-      //   window.removeEventListener('hashchange', loadFinancials);
-    };
   }, []);
 
   return (
@@ -63,7 +56,8 @@ const Industries = ({
       <div className="Industries-list">
         <h1>Industries</h1>
         {isMarketCap ? (
-          <div>
+          <div id="pie-chart">
+            {/* List out industries and their aggregate market cap */}
             {Object.keys(marketCaps).map((industry) => {
               return (
                 <p>{`${industry}: $${String(

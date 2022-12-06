@@ -7,6 +7,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [companies, setCompanies] = useState([]);
   const [industries, setIndustries] = useState([]);
+  const [marketCaps, setMarketCaps] = useState({});
   const [selectedData, setSelectedData] = useState('companies');
 
   return (
@@ -30,6 +31,8 @@ function App() {
           setIsLoading={setIsLoading}
           industries={industries}
           setIndustries={setIndustries}
+          marketCaps={marketCaps}
+          setMarketCaps={setMarketCaps}
         />
       )}
     </div>
