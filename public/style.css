@@ -1,4 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
 #clientList {
-    border: 1px solid black;
-    background-color: lightBlue;
+  border: 1px solid black;
+  background-color: lightBlue;
 }

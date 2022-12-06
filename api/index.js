@@ -5,18 +5,27 @@ const apiRouter = require('express').Router();
 apiRouter.get('/financials/:id', async (req, res) => {
   const { id } = req.params;
   let financials = await Financials.getFinancialsById(id);
-  res.send(financials)
-})
+  res.send(financials);
+});
+
+apiRouter.get('/financials', async (_, res) => {
+  try {
+    let financials = await Financials.getAllFinancials();
+    res.send(financials);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 
 apiRouter.get('/financials', async (_, res) => {
   let financials = await Financials.getAllFinancials();
-  res.send(financials)
-})
+  res.send(financials);
+});
 
 apiRouter.get('/companies/allIds', async (_, res) => {
   let ids = await Companies.getAllCompanyIds();
-  res.send(ids)
-})
+  res.send(ids);
+});
 
 apiRouter.get('/companies/random', async (_, res) => {
   let company = await Companies.getRandomCompany();
