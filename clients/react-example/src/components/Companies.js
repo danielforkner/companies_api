@@ -1,8 +1,7 @@
-import { getCompanies, getFinancialsById } from './api';
 import React, { useState, useEffect } from 'react';
+import { getCompanies, getFinancialsById } from '../api';
 
-function App() {
-  const [companies, setCompanies] = useState([]);
+const Companies = ({ companies, setCompanies }) => {
   const [selectedCompany, setSelectedCompany] = useState('');
   const [financials, setFinancials] = useState([]);
 
@@ -21,17 +20,19 @@ function App() {
 
     window.addEventListener('hashchange', loadFinancials);
     loadFinancials();
-    loadData();
+    if (!companies.length) {
+      loadData();
+    }
 
     return () => {
-      window.removeEventListener('hashchange');
+      window.removeEventListener('hashchange', loadFinancials);
     };
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div>
       <div className="Companies-list">
+        <h1>Companies</h1>
         {companies.map((company) => (
           <li>
             <a href={`#${company.id}`}>{company.company_name}</a>
@@ -60,6 +61,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Companies;

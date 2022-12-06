@@ -1,4 +1,4 @@
-const { Companies, Financials } = require('../db');
+const { Companies, Financials, Industries } = require('../db');
 
 const apiRouter = require('express').Router();
 
@@ -12,6 +12,15 @@ apiRouter.get('/financials', async (_, res) => {
   try {
     let financials = await Financials.getAllFinancials();
     res.send(financials);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+apiRouter.get('/industries', async (_, res) => {
+  try {
+    let industries = await Industries.getIndustries();
+    res.send(industries);
   } catch (error) {
     throw new Error(error);
   }

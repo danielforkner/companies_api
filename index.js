@@ -17,9 +17,11 @@ app.use((err, req, res, next) => {
 
 // static
 app.use(express.static('public'));
-app.use(express.static('react-example'));
+app.use(express.static('clients/react-example'));
 app.use('/react-example', (_, res) =>
-  res.sendFile(path.join(__dirname, 'react-example/client', 'index.html'))
+  res.sendFile(
+    path.join(__dirname, 'clients/react-example/client', 'index.html')
+  )
 );
 app.use('/', (_, res) =>
   res.sendFile(path.join(__dirname, 'public', 'index.html'))

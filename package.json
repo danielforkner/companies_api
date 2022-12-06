@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build:react": "cd react-example && npm run build && cd .. && node index.js"
+    "build:react": "cd clients/react-example && npm run build && cd ../.. && node index.js"
   },
   "author": "danielforkner",
   "license": "ISC",
