@@ -1,6 +1,5 @@
-import './App.css';
 import { getCompanies, getFinancialsById } from './api';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [companies, setCompanies] = useState([]);

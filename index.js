@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const apiRouter = require('./api');
@@ -16,10 +16,14 @@ app.use((err, req, res, next) => {
 });
 
 // static
-app.use(express.static('public'))
-app.use(express.static('react-example/build'))
-app.use('/react-example', (_, res) => res.sendFile(path.join(__dirname, 'react-example/build', 'index.html')));
-app.use('/', (_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.use(express.static('public'));
+app.use(express.static('react-example'));
+app.use('/react-example', (_, res) =>
+  res.sendFile(path.join(__dirname, 'react-example/client', 'index.html'))
+);
+app.use('/', (_, res) =>
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+);
 
 // db
 const { client } = require('./db');
