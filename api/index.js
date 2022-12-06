@@ -17,11 +17,6 @@ apiRouter.get('/financials', async (_, res) => {
   }
 });
 
-apiRouter.get('/financials', async (_, res) => {
-  let financials = await Financials.getAllFinancials();
-  res.send(financials);
-});
-
 apiRouter.get('/companies/allIds', async (_, res) => {
   let ids = await Companies.getAllCompanyIds();
   res.send(ids);
