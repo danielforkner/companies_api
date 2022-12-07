@@ -17,12 +17,16 @@ app.use((err, req, res, next) => {
 
 // static
 app.use(express.static('public'));
+app.use(express.static('clients/d3'));
 app.use(express.static('clients/react-example'));
-app.use('/react-example', (_, res) =>
+app.use('/react-example', (_, res) => {
   res.sendFile(
     path.join(__dirname, 'clients/react-example/client', 'index.html')
-  )
-);
+  );
+});
+app.use('/d3-example', (_, res) => {
+  res.sendFile(path.join(__dirname, 'clients/d3/public', 'index.html'));
+});
 app.use('/', (_, res) =>
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 );
