@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getCompanies, getFinancialsById } from '../api';
-import Data from './Data';
+import CompanyFinancials from './CompanyFinancials';
 
-const Companies = ({ companies, setCompanies }) => {
+interface CompaniesProps {
+  companies: Object[];
+  setCompanies: Function;
+  setIsLoading: Function;
+}
+
+const Companies = ({
+  companies,
+  setCompanies,
+  setIsLoading,
+}: CompaniesProps) => {
   const [selectedCompany, setSelectedCompany] = useState('');
-  const [financials, setFinancials] = useState([]);
+  const [financials, setFinancials] = useState<Array<object>>([]);
 
   useEffect(() => {
     const loadFinancials = async () => {
@@ -12,8 +22,8 @@ const Companies = ({ companies, setCompanies }) => {
       if (!id) return;
       setSelectedCompany(id);
       try {
-        let financials = await getFinancialsById(id);
-        setFinancials(financials);
+        let newFinancials = await getFinancialsById(id);
+        setFinancials(newFinancials);
       } catch (error) {
         console.error(error);
       }
@@ -40,10 +50,12 @@ const Companies = ({ companies, setCompanies }) => {
 
   return (
     <div>
-      <Data data={{ type: 'company-financials', data: financials }} />
+      {financials.length ? (
+        <CompanyFinancials type="company-financials" data={financials} />
+      ) : null}
       <div className="Companies-list">
         <h1>Companies</h1>
-        {companies.map((company) => (
+        {companies.map((company: { id: string; company_name: string }) => (
           <li>
             <a href={`#${company.id}`}>{company.company_name}</a>
           </li>

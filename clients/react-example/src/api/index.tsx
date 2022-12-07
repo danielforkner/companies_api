@@ -1,6 +1,6 @@
 const BASE_URL = window.location.origin;
 
-export const getCompanies = async () => {
+export const getCompanies = async (): Promise<Array<object>> => {
   try {
     const response = await fetch(`${BASE_URL}/api/companies`);
     const json = await response.json();
@@ -10,7 +10,7 @@ export const getCompanies = async () => {
   }
 };
 
-export const getIndustries = async () => {
+export const getIndustries = async (): Promise<Array<object>> => {
   try {
     const response = await fetch(`${BASE_URL}/api/industries`);
     const json = await response.json();
@@ -20,7 +20,7 @@ export const getIndustries = async () => {
   }
 };
 
-export const getFinancialsById = async (id) => {
+export const getFinancialsById = async (id: string): Promise<Array<object>> => {
   try {
     const response = await fetch(`${BASE_URL}/api/financials/${id}`);
     const json = await response.json();

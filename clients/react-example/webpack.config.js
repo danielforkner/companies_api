@@ -1,4 +1,8 @@
 module.exports = {
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+  },
   module: {
     rules: [
       {
@@ -7,6 +11,10 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react'],
         },
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'awesome-typescript-loader',
       },
     ],
   },

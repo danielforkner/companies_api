@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Companies from './components/Companies';
 import Industries from './components/Industries';
 import Loading from './components/Loading';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [companies, setCompanies] = useState([]);
-  const [industries, setIndustries] = useState([]);
-  const [marketCaps, setMarketCaps] = useState({});
+  const [companies, setCompanies] = useState<Array<Object>>([]);
+  const [industries, setIndustries] = useState<Array<Object>>([]);
+  const [marketCaps, setMarketCaps] = useState<{ [key: string]: any }>({});
   const [selectedData, setSelectedData] = useState('companies');
 
   return (
@@ -16,7 +16,9 @@ function App() {
         {isLoading ? <Loading /> : null}
         <p>Select Data:</p>
         <button onClick={() => setSelectedData('companies')}>Companies</button>
-        <button onClick={() => setSelectedData('industries')}>Indstries</button>
+        <button onClick={() => setSelectedData('industries')}>
+          Industries
+        </button>
       </header>
       {selectedData === 'companies' ? (
         <Companies
