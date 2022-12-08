@@ -1,6 +1,25 @@
-const { Companies, Financials, Industries } = require('../db');
+const { Companies, Financials, Industries, Employees } = require('../db');
 
 const apiRouter = require('express').Router();
+
+apiRouter.get('/employees', async (_, res, next) => {
+  try {
+    let employees = await Employees.getAllEmployees();
+    res.send(employees);
+  } catch (error) {
+    next(error);
+  }
+});
+
+apiRouter.get('/employees/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    let employees = await Employees.getEmployeesByCompanyId(id);
+    res.send(employees);
+  } catch (error) {
+    next(error);
+  }
+});
 
 apiRouter.get('/financials/:id', async (req, res, next) => {
   const { id } = req.params;

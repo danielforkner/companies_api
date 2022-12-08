@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCompanies, getFinancialsById } from '../api';
 import CompanyFinancials from './CompanyFinancials';
+import Company from './Company';
 
 interface CompaniesProps {
   companies: Object[];
