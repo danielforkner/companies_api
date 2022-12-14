@@ -6,3 +6,18 @@
   border: 1px solid black;
   background-color: lightBlue;
 }
+
+h2 {
+  background-color: lightgray;
+  padding: 0.5rem 0;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.get {
+  background-color: lightgreen;
+}

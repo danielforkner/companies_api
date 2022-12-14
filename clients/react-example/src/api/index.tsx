@@ -1,4 +1,4 @@
-const BASE_URL = window.location.origin;
+const BASE_URL = 'https://companies-api.onrender.com';
 
 export const getCompanies = async (): Promise<Array<object>> => {
   try {

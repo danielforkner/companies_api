@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 import Companies from './components/Companies';
 import Industries from './components/Industries';
 import Loading from './components/Loading';
@@ -15,28 +16,36 @@ function App() {
       <header className="App-header">
         {isLoading ? <Loading /> : null}
         <p>Select Data:</p>
-        <button onClick={() => setSelectedData('companies')}>Companies</button>
-        <button onClick={() => setSelectedData('industries')}>
-          Industries
-        </button>
+        <Link to="/react-example/companies">Companies</Link>
+        <Link to="/react-example/industries">Industries</Link>
       </header>
-      {selectedData === 'companies' ? (
-        <Companies
-          setIsLoading={setIsLoading}
-          companies={companies}
-          setCompanies={setCompanies}
+      <Routes>
+        <Route
+          path="/react-example"
+          element={
+            <Companies
+              setIsLoading={setIsLoading}
+              companies={companies}
+              setCompanies={setCompanies}
+            />
+          }
         />
-      ) : (
-        <Industries
-          companies={companies}
-          setCompanies={setCompanies}
-          setIsLoading={setIsLoading}
-          industries={industries}
-          setIndustries={setIndustries}
-          marketCaps={marketCaps}
-          setMarketCaps={setMarketCaps}
+
+        <Route
+          path="/react-example/industries"
+          element={
+            <Industries
+              companies={companies}
+              setCompanies={setCompanies}
+              setIsLoading={setIsLoading}
+              industries={industries}
+              setIndustries={setIndustries}
+              marketCaps={marketCaps}
+              setMarketCaps={setMarketCaps}
+            />
+          }
         />
-      )}
+      </Routes>
     </div>
   );
 }
