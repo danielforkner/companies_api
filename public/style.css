@@ -2,14 +2,21 @@
   box-sizing: border-box;
 }
 
-#clientList {
-  border: 1px solid black;
-  background-color: lightBlue;
+.category {
+  background-color: lightgray;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-h2 {
-  background-color: lightgray;
-  padding: 0.5rem 0;
+.category h2 {
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  padding: 0;
 }
 
 .heading {
@@ -20,4 +27,22 @@ h2 {
 
 .get {
   background-color: lightgreen;
+}
+
+.path a {
+  text-decoration: none;
+  color: rgb(86, 85, 85);
+}
+
+/* ANIAMTION
+.showSection {
+  display: block;
+} */
+
+.details,
+.endpoints {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }

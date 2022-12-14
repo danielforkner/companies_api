@@ -2,75 +2,139 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" details="IE=edge" />
+    <meta name="viewport" details="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Companies-API</title>
+    <script src="script.js" defer></script>
   </head>
+
   <body>
     <h1>Companies API - Endpoints</h1>
     <p></p>
-    <h2>Companies</h2>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span> <span class="path"><a href="/api/companies">/api/companies</a></span>
-      </h3>
+    <div class="category">
+      <h2>Companies</h2>
+      <p class="showSectionButton">Show/Hide</p>
     </div>
-    <p>Returns an array of all companies</p>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/companies/random">/api/companies/random</a></span>
-      </h3>
+    <section class="endpoints" id="companiesSection">
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"><a href="/api/companies">/api/companies</a></span>
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns an array of all companies</p>
+      </div>
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/companies/random">/api/companies/random</a></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns a random company object</p>
+      </div>
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/companies/62KzUgS82v99c&CAtvbch"
+              >/api/companies/:id</a
+            ></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns the company with the specified id</p>
+      </div>
+    </section>
+    <div class="category">
+      <h2>Financial Data</h2>
+      <p class="showSectionButton">Show/Hide</p>
     </div>
-    <p>Returns a random company object</p>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/companies/62KzUgS82v99c&CAtvbch">/api/companies/:id</a></span>
-      </h3>
+    <section class="endpoints" id="financialSection">
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/financials">/api/financials</a></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns an array of all financial reports</p>
+      </div>
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
+              >/api/financials/:id</a
+            ></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>
+          Returns an array of all financial reports for the specified company
+        </p>
+      </div>
+    </section>
+    <div class="category">
+      <h2>Industry Data</h2>
+      <p class="showSectionButton">Show/Hide</p>
     </div>
-    <p>Returns the company with the specified id</p>
-    <h2>Financial Data</h2>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/financials">/api/financials</a></span>
-      </h3>
+    <section class="endpoints" id="industrySection">
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/industries">/api/industries</a></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns an array of all industries</p>
+      </div>
+    </section>
+    <div class="category">
+      <h2>Employees</h2>
+      <p class="showSectionButton">Show/Hide</p>
     </div>
-    <p>Returns an array of all financial reports</p>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/financials/62KzUgS82v99c&CAtvbch">/api/financials/:id</a></span>
-      </h3>
-    </div>
-    <p>Returns an array of all financial reports for the specified company</p>
-    <h2>Industry Data</h2>
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/industries">/api/industries</a></span>
-      </h3>
-    </div>
-    <p>Returns an array of all industries</p>
-    <h2>Employees</h2>
-
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span> <span class="path"><a href="/api/employees">/api/employees</a></span>
-      </h3>
-    </div>
-    <p>Returns an array of all employees</p>
-
-    <div class="heading">
-      <h3>
-        <span class="get">GET</span>
-        <span class="path"><a href="/api/employees/21ImC8IUCp19m&QEfdBbg"</span>
-          >/api/employees/:companyId</a
-        >
-      </h3>
-    </div>
-    <p>Returns an array of all employees of the specified company</p>
+    <section class="endpoints" id="employeeSection">
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"><a href="/api/employees">/api/employees</a></span>
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns an array of all employees</p>
+      </div>
+      <div class="heading">
+        <h3>
+          <span class="get">GET</span>
+          <span class="path"
+            ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
+              >/api/employees/:companyId</a
+            ></span
+          >
+        </h3>
+        <p class="showDetailsButton">Details</p>
+      </div>
+      <div class="details">
+        <p>Returns an array of all employees of the specified company</p>
+      </div>
+    </section>
   </body>
 </html>
