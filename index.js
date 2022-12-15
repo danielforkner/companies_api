@@ -12,7 +12,9 @@ app.use(morgan('dev'));
 // body parsing
 app.use(express.json());
 app.use((req, _, next) => {
+  console.log('~~~BODY LOGGER START~~~');
   console.log('body: ', req.body);
+  console.log('~~~BODY LOGGER END~~~');
   next();
 });
 

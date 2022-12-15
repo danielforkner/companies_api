@@ -335,8 +335,10 @@
 // console.log(newqueries)
 
 // create a users table
-// create table users (
-//     id serial primary key,
-//     username varchar(255) not null,
-//     password varchar(255) not null
-//     );
+// CREATE TABLE users (
+//     id SERIAL PRIMARY KEY,
+//     username VARCHAR(255) UNIQUE NOT NULL,
+//     password VARCHAR(255) NOT NULL
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//     last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//   )

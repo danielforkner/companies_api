@@ -38,7 +38,28 @@ const getUserByUsername = async (username) => {
   }
 };
 
+const updateLoginTimestamp = async (id) => {
+  const client = new Client(DB_URL);
+  console.log('querying the database to update a user login timestamp');
+  try {
+    await client.connect();
+    const {
+      rows: [last_login],
+    } = await client.query(
+      `UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1 RETURNING last_login`,
+      [id]
+    );
+    return last_login;
+  } catch (error) {
+    throw new Error(error);
+  } finally {
+    console.log('closing the database connection');
+    await client.end();
+  }
+};
+
 module.exports = {
   create,
   getUserByUsername,
+  updateLoginTimestamp,
 };
