@@ -10,131 +10,210 @@
   </head>
 
   <body>
-    <h1>Companies API - Endpoints</h1>
-    <p></p>
-    <div class="category">
-      <h2>Companies</h2>
-      <p class="showSectionButton">Show/Hide</p>
+    <h1>Companies API Documentation</h1>
+    <div class="container">
+      <div class="category">
+        <h2>Companies</h2>
+        <p class="showSectionButton">Show/Hide</p>
+      </div>
+      <section class="endpoints" id="companiesSection">
+        <div class="getContainer">
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="get httpVerb">GET</span>
+              <span class="path">/api/companies</span>
+            </h3>
+            <p class="showDetailsButton">Fetch Companies</p>
+          </div>
+          <div class="details">
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns an array of all companies</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                <th>HTTP Status Code</th>
+                <th>Reason</th>
+                <th>Same Response</th>
+              </tr>
+              <tr>
+                <td class="code">200</td>
+                <td>OK</td>
+                <td class="response">
+                  <pre><code class="json">
+  [
+    {
+      "id": "48jJZAVGXs57k&P9nPRif",
+      "company_name": "Abernathy-Baumbach",
+      "industry": "Savings Institutions",
+      "market_cap": "$231.87M",
+      "logo_img": "http://dummyimage.com/247x100.png/dddddd/000000",
+      "street_address": "45 Mariners Cove Park",
+      "state": "TX",
+      "phone": "512-192-3551"
+    },
+    ...
+  ]
+                </code></pre>
+                </td>
+              </table>
+            </div>
+
+          <div class="detailSection">
+            <h4 class="getSectionTitle">Try it</h4>
+            <a href="/api/companies" target="_blank" rel="noopener noreferrer">/api/companies</a>
+          </div>
+        </div>
+      </div>  
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              >/api/companies/random</span
+            >
+          </h3>
+          <p class="showDetailsButton">Fetch a Random Company</p>
+        </div>
+        <div class="details">
+          <p>Returns a random company object</p>
+          <h4>Try it</h4>
+          <a href="/api/companies/random" target="_blank" rel="noopener noreferrer">/api/companies/random</a>
+        </div>
+      </div>  
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path">/api/companies/:id</span>
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <p>Returns the company with the specified id</p>
+          <h4>Try it</h4>
+          <a href="/api/companies/62KzUgS82v99c&CAtvbch">/api/companies/62KzUgS82v99c&CAtvbch</a>
+        </div>
+      </section>
+      <div class="category">
+        <h2>Financial Data</h2>
+        <p class="showSectionButton">Show/Hide</p>
+      </div>
+      <section class="endpoints" id="financialSection">
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              ><a href="/api/financials">/api/financials</a></span
+            >
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <p>Returns an array of all financial reports</p>
+        </div>
+      </div>  
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
+                >/api/financials/:id</a
+              ></span
+            >
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <p>
+            Returns an array of all financial reports for the specified company
+          </p>
+        </div>
+      </section>
+      <div class="category">
+        <h2>Industry Data</h2>
+        <p class="showSectionButton">Show/Hide</p>
+      </div>
+      <section class="endpoints" id="industrySection">
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              ><a href="/api/industries">/api/industries</a></span
+            >
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <div class="detailSection">
+            <h4 class="getSectionTitle">Implementation Notes</h4>
+            <p>Returns an array of all industries</p>
+          </div>
+          <div class="detailSection">
+            <h4 class="getSectionTitle">Response Messages</h4>
+            <table>
+              <tr>
+              <th>HTTP Status Code</th>
+              <th>Reason</th>
+              <th>Same Response</th>
+            </tr>
+            <tr>
+              <td class="code">200</td>
+              <td>OK</td>
+              <td>   <pre><code class="json">
+[
+  { "id": 1, "name": "Agriculture" },
+  ...
+]
+                </code></pre></td>
+            </table>
+
+           
+            </p>
+        </div>
+      </section>
+      <div class="category">
+        <h2>Employees</h2>
+        <p class="showSectionButton">Show/Hide</p>
+      </div>
+      <section class="endpoints" id="employeeSection">
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              ><a href="/api/employees">/api/employees</a></span
+            >
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <p>Returns an array of all employees</p>
+        </div>
+      </div>  
+        <div class="getContainer">
+        <div class="heading getHeading">
+          <h3 class="headingTitle">
+            <span class="get httpVerb">GET</span>
+            <span class="path"
+              ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
+                /api/employees/:companyId</a
+              ></span
+            >
+          </h3>
+          <p class="showDetailsButton">Details</p>
+        </div>
+        <div class="details">
+          <p>Returns an array of all employees of the specified company</p>
+        </div>
+      </section>
     </div>
-    <section class="endpoints" id="companiesSection">
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"><a href="/api/companies">/api/companies</a></span>
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns an array of all companies</p>
-      </div>
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/companies/random">/api/companies/random</a></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns a random company object</p>
-      </div>
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/companies/62KzUgS82v99c&CAtvbch"
-              >/api/companies/:id</a
-            ></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns the company with the specified id</p>
-      </div>
-    </section>
-    <div class="category">
-      <h2>Financial Data</h2>
-      <p class="showSectionButton">Show/Hide</p>
-    </div>
-    <section class="endpoints" id="financialSection">
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/financials">/api/financials</a></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns an array of all financial reports</p>
-      </div>
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
-              >/api/financials/:id</a
-            ></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>
-          Returns an array of all financial reports for the specified company
-        </p>
-      </div>
-    </section>
-    <div class="category">
-      <h2>Industry Data</h2>
-      <p class="showSectionButton">Show/Hide</p>
-    </div>
-    <section class="endpoints" id="industrySection">
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/industries">/api/industries</a></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns an array of all industries</p>
-      </div>
-    </section>
-    <div class="category">
-      <h2>Employees</h2>
-      <p class="showSectionButton">Show/Hide</p>
-    </div>
-    <section class="endpoints" id="employeeSection">
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"><a href="/api/employees">/api/employees</a></span>
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns an array of all employees</p>
-      </div>
-      <div class="heading">
-        <h3>
-          <span class="get">GET</span>
-          <span class="path"
-            ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
-              >/api/employees/:companyId</a
-            ></span
-          >
-        </h3>
-        <p class="showDetailsButton">Details</p>
-      </div>
-      <div class="details">
-        <p>Returns an array of all employees of the specified company</p>
-      </div>
-    </section>
   </body>
 </html>
+
+

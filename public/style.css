@@ -1,5 +1,18 @@
+:root {
+  --getColorDark: rgb(87, 147, 87);
+  --getColorDarker: rgb(36, 72, 36);
+  --getColorLight: rgb(183, 235, 183);
+  --getColorPrimary: lightgreen;
+}
+
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 2rem;
 }
 
 .category {
@@ -15,9 +28,9 @@
   margin: 0;
 }
 
-section {
-  padding: 0;
-}
+/* section {
+  margin: 1rem 0;
+} */
 
 .heading {
   display: flex;
@@ -25,19 +38,52 @@ section {
   align-items: center;
 }
 
-.get {
-  background-color: lightgreen;
+.headingTitle {
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
-.path a {
+.showDetailsButton {
+  cursor: pointer;
+}
+
+.getHeading {
+  border: 1px solid var(--getColorDark);
+  /* background-color: rgb(183, 235, 183); */
+}
+
+.getSectionTitle {
+  color: var(--getColorDarker);
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.getContainer {
+  margin: 0.5rem 0;
+  border: 1px solid var(--getColorDark);
+  background-color: var(--getColorLight);
+}
+
+.httpVerb {
+  padding: 0.25rem;
+}
+
+.get {
+  background-color: var(--getColorPrimary);
+  border-right: 1px solid var(--getColorDark);
+}
+
+.path {
   text-decoration: none;
   color: rgb(86, 85, 85);
 }
 
-/* ANIAMTION
+/* ANIAMTION */
 .showSection {
-  display: block;
-} */
+  /* display: block; */
+}
 
 .details,
 .endpoints {
@@ -45,4 +91,41 @@ section {
   overflow: hidden;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+}
+
+.detailSection {
+  margin: 0.5rem;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border-bottom: darkgray;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+}
+
+td {
+  vertical-align: top;
+}
+
+td.response {
+  max-width: 350px;
+}
+
+pre {
+  background-color: #fff;
+  max-height: 250px;
+  overflow: auto;
+}
+
+.json {
 }

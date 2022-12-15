@@ -1,5 +1,7 @@
 let showSectionButtons = document.querySelectorAll('.showSectionButton');
-let showDetailsButtons = document.querySelectorAll('.showDetailsButton');
+let showDetailsButtons = document.querySelectorAll(
+  '.showDetailsButton, .headingTitle'
+);
 showSectionButtons.forEach((button) => {
   button.addEventListener('click', () => {
     let section = button.parentElement.nextElementSibling;
@@ -15,7 +17,7 @@ showSectionButtons.forEach((button) => {
 showDetailsButtons.forEach((button) => {
   button.addEventListener('click', () => {
     let div = button.parentElement.nextElementSibling;
-    let section = div.parentElement;
+    let section = div.parentElement.parentElement;
     div.classList.toggle('showSection');
     if (div.classList.contains('showSection')) {
       div.style.height = div.scrollHeight + 'px';
