@@ -1,14 +1,22 @@
 require('dotenv').config();
+const path = require('path');
+const PORT = process.env.PORT || 3001;
+
 const express = require('express');
 const app = express();
-const apiRouter = require('./api');
-const PORT = process.env.PORT || 3001;
-const path = require('path');
-const morgan = require('morgan');
 
 // middleware
+const morgan = require('morgan');
 app.use(morgan('dev'));
 
+// body parsing
+app.use(express.json());
+app.use((req, _, next) => {
+  console.log('body: ', req.body);
+  next();
+});
+
+const apiRouter = require('./api');
 app.use('/api', apiRouter);
 
 app.use((err, req, res, next) => {
@@ -17,20 +25,11 @@ app.use((err, req, res, next) => {
 
 // static
 app.use(express.static('public'));
-// app.use(express.static('clients/d3'));
-// app.use(express.static('clients/react-example'));
-// app.use('/react-example', (_, res) => {
-//   res.sendFile(
-//     path.join(__dirname, 'clients/react-example/client', 'index.html')
-//   );
-// });
-// app.use('/d3-example', (_, res) => {
-//   res.sendFile(path.join(__dirname, 'clients/d3/public', 'index.html'));
-// });
 app.use('/', (_, res) =>
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 );
 
+// error handling
 app.use((err, req, res, next) => {
   console.error('an error occurred: ', err);
   res.status(500).send(err);

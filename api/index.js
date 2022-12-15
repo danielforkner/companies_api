@@ -2,6 +2,8 @@ const { Companies, Financials, Industries, Employees } = require('../db');
 
 const apiRouter = require('express').Router();
 
+apiRouter.use('/users', require('./usersRouter'));
+
 apiRouter.get('/employees', async (_, res, next) => {
   try {
     let employees = await Employees.getAllEmployees();

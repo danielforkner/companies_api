@@ -333,3 +333,10 @@
 //     return query.substring(0, 82) + `('${allIds[idx].id}', ` + query.substring(83)
 // })
 // console.log(newqueries)
+
+// create a users table
+// create table users (
+//     id serial primary key,
+//     username varchar(255) not null,
+//     password varchar(255) not null
+//     );
