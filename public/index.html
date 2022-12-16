@@ -6,7 +6,7 @@
     <meta name="viewport" details="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Companies-API</title>
-    <script src="script.js" defer></script>
+    <script src="/script.js" defer></script>
   </head>
 
   <body>
@@ -42,7 +42,7 @@
                   <td class="code">200</td>
                   <td>OK</td>
                   <td class="response">
-                    <pre><code class="json">
+                    <pre class="pre_sampleResponse"><code class="json">
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
                   </td>
@@ -52,16 +52,92 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
             <div class="detailSection">
               <h4 class="postSectionTitle">Try it</h4>
               <form id="registerForm">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" />
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" />
-                <div class="submit"><button type="submit">Register</button><div id="loadingRegister" style="white-space : nowrap"></div>
+                <label for="username"
+                  >Username:
+                  <input type="text" name="username" id="registerUsername"
+                /></label>
+                <label for="password"
+                  >Password:
+                  <input type="password" name="password" id="registerPassword"
+                /></label>
+                <div class="submit">
+                  <button type="submit">Register</button>
+                  <div id="loadingRegister" style="white-space: nowrap"></div>
+                </div>
               </form>
-              <!-- <div id="responseContainer">
-                <h4>Response</h4>
-                <pre><code id="registerResponse" class="json"></code></pre>
-              </div> -->
+              <div id="responseContainer">
+                <h4 class="postSectionTitle">Request URL</h4>
+                <pre class="pre_actualResponse">
+                <code id="registerUserRequestURL" class="requestURL"></code></pre>
+                <h4 class="postSectionTitle">Response Body</h4>
+                <pre class="pre_actualResponse">
+                <code id="registerUserResponseBody" class="responseBody"></code></pre>
+                <h4 class="postSectionTitle">Response Code</h4>
+                <pre class="pre_actualResponse">
+                <code id="registerUserResponseCode" class="responseCode"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="putContainer">
+          <div class="heading putHeading">
+            <h3 class="headingTitle">
+              <span class="putVerb httpVerb">PUT</span>
+              <span class="path">/api/users/login</span>
+            </h3>
+            <p class="showDetailsButton">Login User</p>
+          </div>
+          <div class="details">
+            <div class="detailSection">
+              <h4 class="putSectionTitle">Implementation Notes</h4>
+              <p>Login an existing user and responds with a token</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="putSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="detailSection">
+              <h4 class="putSectionTitle">Try it</h4>
+              <form id="loginForm">
+                <label for="username"
+                  >Username:
+                  <input type="text" name="username" id="loginUsername"
+                /></label>
+                <label for="password"
+                  >Password:
+                  <input type="password" name="password" id="loginPassword"
+                /></label>
+                <div class="submit">
+                  <button type="submit">Login</button>
+                  <div id="loadingLogin" style="white-space: nowrap"></div>
+                </div>
+              </form>
+              <div id="responseContainer">
+                <h4 class="putSectionTitle">Request URL</h4>
+                <pre class="pre_actualResponse">
+                <code id="loginUserRequestURL" class="requestURL"></code></pre>
+                <h4 class="putSectionTitle">Response Body</h4>
+                <pre class="pre_actualResponse">
+                <code id="loginUserResponseBody" class="responseBody"></code></pre>
+                <h4 class="putSectionTitle">Response Code</h4>
+                <pre class="pre_actualResponse">
+                <code id="loginUserResponseCode" class="responseCode"></code></pre>
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +172,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
                   <td class="code">200</td>
                   <td>OK</td>
                   <td class="response">
-                    <pre><code class="json">
+                    <pre class="pre_sampleResponse"><code class="json">
 [
   {
     "id": "48jJZAVGXs57k&P9nPRif",

@@ -33,16 +33,23 @@ usersRouter.put('/login', async (req, res, next) => {
     if (user && user.password === password) {
       let lastLogin = await Users.updateLoginTimestamp(user.id);
       if (!lastLogin)
-        throw new Error(
-          'Unable to update login timestamp. Database error, please try again later.'
-        );
+        throw new Error({
+          error: 'Database Error',
+          message:
+            'Unable to update login timestamp. Database error, please try again later.',
+        });
       const token = jwt.sign(
         { id: user.id, username: user.username },
         JWT_SECRET
       );
-      res.send(token);
+      res.send({ token });
     } else {
-      res.status(401).send('Incorrect username or password');
+      res
+        .status(401)
+        .send({
+          error: 'Unauthorized',
+          message: 'Incorrect Username or Password',
+        });
     }
   } catch (error) {
     next(error);

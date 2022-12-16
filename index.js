@@ -21,17 +21,17 @@ app.use((req, _, next) => {
 const apiRouter = require('./api');
 app.use('/api', apiRouter);
 
-// static
-app.use(express.static('public'));
-app.use('/', (_, res) =>
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
-);
-
 // error handling
 app.use((err, req, res, next) => {
   console.error('an error occurred: ', err);
   res.status(500).send(err);
 });
+
+// static
+app.use(express.static('public'));
+app.use('/', (_, res) =>
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+);
 
 // server
 app.listen(PORT, async () => {
