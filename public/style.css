@@ -1,8 +1,11 @@
 :root {
-  --getColorDark: rgb(87, 147, 87);
-  --getColorDarker: rgb(36, 72, 36);
-  --getColorLight: rgb(183, 235, 183);
-  --getColorPrimary: lightgreen;
+  --getColorAccent: rgb(195, 217, 236);
+  --getColorLight: rgb(235, 243, 249);
+  --getColorPrimary: rgb(37, 106, 180);
+
+  --postColorAccent: rgb(255, 255, 204);
+  --postColorLight: rgb(255, 255, 204);
+  --postColorPrimary: rgb(255, 255, 204);
 }
 
 * {
@@ -50,29 +53,34 @@
 }
 
 .getHeading {
-  border: 1px solid var(--getColorDark);
+  border: 1px solid var(--getColorAccent);
   /* background-color: rgb(183, 235, 183); */
 }
 
 .getSectionTitle {
-  color: var(--getColorDarker);
+  color: var(--getColorPrimary);
   font-weight: bold;
   padding: 0.5rem 0;
 }
 
 .getContainer {
   margin: 0.5rem 0;
-  border: 1px solid var(--getColorDark);
+  border: 1px solid var(--getColorAccent);
   background-color: var(--getColorLight);
+}
+
+.getHeading > p {
+  color: var(--getColorPrimary);
 }
 
 .httpVerb {
   padding: 0.25rem;
 }
 
-.get {
+.getVerb {
   background-color: var(--getColorPrimary);
-  border-right: 1px solid var(--getColorDark);
+  border-right: 1px solid var(--getColorAccent);
+  color: white;
 }
 
 .path {
@@ -101,11 +109,7 @@ table,
 th,
 td {
   border-collapse: collapse;
-}
-
-td,
-th {
-  border-bottom: darkgray;
+  color: rgb(140, 143, 145);
 }
 
 table {
@@ -113,8 +117,17 @@ table {
   text-align: left;
 }
 
+tr {
+  border-bottom: 1px solid gray;
+}
+
 td {
   vertical-align: top;
+}
+
+td.code {
+  color: black;
+  font-weight: bold;
 }
 
 td.response {

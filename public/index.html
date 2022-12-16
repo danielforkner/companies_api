@@ -13,14 +13,56 @@
     <h1>Companies API Documentation</h1>
     <div class="container">
       <div class="category">
+        <h2>Users</h2>
+        <p class="showSectionButton">Expand</p>
+      </div>
+      <section class="endpoints" id="usersSection">
+        <div class="postContainer">
+          <div class="heading postHeading">
+            <h3 class="headingTitle">
+              <span class="post httpVerb">POST</span>
+              <span class="path"
+                ><a href="/api/users/register">/api/users/register</a></span
+              >
+            </h3>
+            <p class="showDetailsButton">Post New User</p>
+          </div>
+          <div class="details">
+            <div class="detailSection">
+              <h4 class="postSectionTitle">Implementation Notes</h4>
+              <p>Registers a new user and sends responds with a token</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="postSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td>
+                    <pre><code class="json">
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="category">
         <h2>Companies</h2>
-        <p class="showSectionButton">Show/Hide</p>
+        <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="companiesSection">
         <div class="getContainer">
           <div class="heading getHeading">
             <h3 class="headingTitle">
-              <span class="get httpVerb">GET</span>
+              <span class="getVerb httpVerb">GET</span>
               <span class="path">/api/companies</span>
             </h3>
             <p class="showDetailsButton">Fetch Companies</p>
@@ -34,186 +76,219 @@
               <h4 class="getSectionTitle">Response Messages</h4>
               <table>
                 <tr>
-                <th>HTTP Status Code</th>
-                <th>Reason</th>
-                <th>Same Response</th>
-              </tr>
-              <tr>
-                <td class="code">200</td>
-                <td>OK</td>
-                <td class="response">
-                  <pre><code class="json">
-  [
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre><code class="json">
+[
+  {
+    "id": "48jJZAVGXs57k&P9nPRif",
+    "company_name": "Abernathy-Baumbach",
+    "industry": "Savings Institutions",
+    "market_cap": "$231.87M",
+    "logo_img": "http://dummyimage.com/247x100.png/dddddd/000000",
+    "street_address": "45 Mariners Cove Park",
+    "state": "TX",
+    "phone": "512-192-3551"
+  },
+  {
+    "id": "92AWJaTG8d09a&V8MOTew",
+    "company_name": "Altenwerth, Upton and Erdman",
+    "industry": "Major Banks",
+    "market_cap": "$640.53M",
+    "logo_img": "http://dummyimage.com/118x100.png/dddddd/000000",
+    "street_address": "18 Johnson Point",
+    "state": "WV",
+    "phone": "304-134-5160"
+    },
     {
-      "id": "48jJZAVGXs57k&P9nPRif",
-      "company_name": "Abernathy-Baumbach",
-      "industry": "Savings Institutions",
-      "market_cap": "$231.87M",
-      "logo_img": "http://dummyimage.com/247x100.png/dddddd/000000",
-      "street_address": "45 Mariners Cove Park",
-      "state": "TX",
-      "phone": "512-192-3551"
+    "id": "02yWGrT2Xg21s&IWgRycf",
+    "company_name": "Bartoletti-Roob",
+    "industry": "Industrial Machinery/Components",
+    "market_cap": "$219.92M",
+    "logo_img": "http://dummyimage.com/171x100.png/dddddd/000000",
+    "street_address": "896 Gulseth Plaza",
+    "state": "NH",
+    "phone": "603-192-4675"
     },
     ...
-  ]
+]
                 </code></pre>
-                </td>
+                  </td>
+                </tr>
               </table>
             </div>
 
-          <div class="detailSection">
-            <h4 class="getSectionTitle">Try it</h4>
-            <a href="/api/companies" target="_blank" rel="noopener noreferrer">/api/companies</a>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a href="/api/companies" target="_blank" rel="noopener noreferrer"
+                >/api/companies</a
+              >
+            </div>
           </div>
         </div>
-      </div>  
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              >/api/companies/random</span
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path">/api/companies/random</span>
+            </h3>
+            <p class="showDetailsButton">Fetch Random Company</p>
+          </div>
+          <div class="details">
+            <p>Returns a random company object</p>
+            <h4>Try it</h4>
+            <a
+              href="/api/companies/random"
+              target="_blank"
+              rel="noopener noreferrer"
+              >/api/companies/random</a
             >
-          </h3>
-          <p class="showDetailsButton">Fetch a Random Company</p>
+          </div>
         </div>
-        <div class="details">
-          <p>Returns a random company object</p>
-          <h4>Try it</h4>
-          <a href="/api/companies/random" target="_blank" rel="noopener noreferrer">/api/companies/random</a>
-        </div>
-      </div>  
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path">/api/companies/:id</span>
-          </h3>
-          <p class="showDetailsButton">Details</p>
-        </div>
-        <div class="details">
-          <p>Returns the company with the specified id</p>
-          <h4>Try it</h4>
-          <a href="/api/companies/62KzUgS82v99c&CAtvbch">/api/companies/62KzUgS82v99c&CAtvbch</a>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path">/api/companies/:id</span>
+            </h3>
+            <p class="showDetailsButton">Fetch Specific Company</p>
+          </div>
+          <div class="details">
+            <p>Returns the company with the specified id</p>
+            <h4>Try it</h4>
+            <a href="/api/companies/62KzUgS82v99c&CAtvbch"
+              >/api/companies/62KzUgS82v99c&CAtvbch</a
+            >
+          </div>
         </div>
       </section>
       <div class="category">
         <h2>Financial Data</h2>
-        <p class="showSectionButton">Show/Hide</p>
+        <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="financialSection">
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              ><a href="/api/financials">/api/financials</a></span
-            >
-          </h3>
-          <p class="showDetailsButton">Details</p>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path"
+                ><a href="/api/financials">/api/financials</a></span
+              >
+            </h3>
+            <p class="showDetailsButton">Fetch Financial Data</p>
+          </div>
+          <div class="details">
+            <p>Returns an array of all financial reports</p>
+          </div>
         </div>
-        <div class="details">
-          <p>Returns an array of all financial reports</p>
-        </div>
-      </div>  
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
-                >/api/financials/:id</a
-              ></span
-            >
-          </h3>
-          <p class="showDetailsButton">Details</p>
-        </div>
-        <div class="details">
-          <p>
-            Returns an array of all financial reports for the specified company
-          </p>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path"
+                ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
+                  >/api/financials/:id</a
+                ></span
+              >
+            </h3>
+            <p class="showDetailsButton">Fetch Financials for a Company</p>
+          </div>
+          <div class="details">
+            <p>
+              Returns an array of all financial reports for the specified
+              company
+            </p>
+          </div>
         </div>
       </section>
       <div class="category">
         <h2>Industry Data</h2>
-        <p class="showSectionButton">Show/Hide</p>
+        <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="industrySection">
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              ><a href="/api/industries">/api/industries</a></span
-            >
-          </h3>
-          <p class="showDetailsButton">Details</p>
-        </div>
-        <div class="details">
-          <div class="detailSection">
-            <h4 class="getSectionTitle">Implementation Notes</h4>
-            <p>Returns an array of all industries</p>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path"
+                ><a href="/api/industries">/api/industries</a></span
+              >
+            </h3>
+            <p class="showDetailsButton">Fetch Industries</p>
           </div>
-          <div class="detailSection">
-            <h4 class="getSectionTitle">Response Messages</h4>
-            <table>
-              <tr>
-              <th>HTTP Status Code</th>
-              <th>Reason</th>
-              <th>Same Response</th>
-            </tr>
-            <tr>
-              <td class="code">200</td>
-              <td>OK</td>
-              <td>   <pre><code class="json">
+          <div class="details">
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns an array of all industries</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td>
+                    <pre><code class="json">
 [
   { "id": 1, "name": "Agriculture" },
   ...
 ]
-                </code></pre></td>
-            </table>
-
-           
-            </p>
+                </code>
+              </pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
       <div class="category">
         <h2>Employees</h2>
-        <p class="showSectionButton">Show/Hide</p>
+        <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="employeeSection">
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              ><a href="/api/employees">/api/employees</a></span
-            >
-          </h3>
-          <p class="showDetailsButton">Details</p>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path"
+                ><a href="/api/employees">/api/employees</a></span
+              >
+            </h3>
+            <p class="showDetailsButton">Fetch Employees</p>
+          </div>
+          <div class="details">
+            <p>Returns an array of all employees</p>
+          </div>
         </div>
-        <div class="details">
-          <p>Returns an array of all employees</p>
-        </div>
-      </div>  
         <div class="getContainer">
-        <div class="heading getHeading">
-          <h3 class="headingTitle">
-            <span class="get httpVerb">GET</span>
-            <span class="path"
-              ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
-                /api/employees/:companyId</a
-              ></span
-            >
-          </h3>
-          <p class="showDetailsButton">Details</p>
-        </div>
-        <div class="details">
-          <p>Returns an array of all employees of the specified company</p>
+          <div class="heading getHeading">
+            <h3 class="headingTitle">
+              <span class="getVerb httpVerb">GET</span>
+              <span class="path"
+                ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
+                  /api/employees/:companyId</a
+                ></span
+              >
+            </h3>
+            <p class="showDetailsButton">Fetch Employees for a Company</p>
+          </div>
+          <div class="details">
+            <p>Returns an array of all employees of the specified company</p>
+          </div>
         </div>
       </section>
     </div>
   </body>
 </html>
-
-

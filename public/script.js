@@ -7,8 +7,10 @@ showSectionButtons.forEach((button) => {
     let section = button.parentElement.nextElementSibling;
     section.classList.toggle('showSection');
     if (section.classList.contains('showSection')) {
+      button.innerText = 'Collapse';
       section.style.height = section.scrollHeight + 'px';
     } else {
+      button.innerText = 'Expand';
       section.style.height = 0;
     }
   });
