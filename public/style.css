@@ -3,9 +3,9 @@
   --getColorLight: rgb(235, 243, 249);
   --getColorPrimary: rgb(37, 106, 180);
 
-  --postColorAccent: rgb(255, 255, 204);
-  --postColorLight: rgb(255, 255, 204);
-  --postColorPrimary: rgb(255, 255, 204);
+  --postColorAccent: rgb(195, 236, 205);
+  --postColorLight: rgb(235, 249, 235);
+  --postColorPrimary: rgb(37, 180, 66);
 }
 
 * {
@@ -16,6 +16,7 @@
 
 .container {
   margin: 0 2rem;
+  max-width: 1200px;
 }
 
 .category {
@@ -24,6 +25,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.showSectionButton {
+  cursor: pointer;
 }
 
 .category h2 {
@@ -52,40 +57,68 @@
   cursor: pointer;
 }
 
-.getHeading {
-  border: 1px solid var(--getColorAccent);
-  /* background-color: rgb(183, 235, 183); */
-}
-
-.getSectionTitle {
-  color: var(--getColorPrimary);
-  font-weight: bold;
-  padding: 0.5rem 0;
-}
-
-.getContainer {
-  margin: 0.5rem 0;
-  border: 1px solid var(--getColorAccent);
-  background-color: var(--getColorLight);
-}
-
-.getHeading > p {
-  color: var(--getColorPrimary);
-}
-
 .httpVerb {
   padding: 0.25rem;
-}
-
-.getVerb {
-  background-color: var(--getColorPrimary);
-  border-right: 1px solid var(--getColorAccent);
-  color: white;
 }
 
 .path {
   text-decoration: none;
   color: rgb(86, 85, 85);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+}
+.submit {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Colors for endpoints */
+.getHeading {
+  border: 1px solid var(--getColorAccent);
+}
+.postHeading {
+  border: 1px solid var(--postColorAccent);
+}
+.getSectionTitle {
+  color: var(--getColorPrimary);
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+.postSectionTitle {
+  color: var(--postColorPrimary);
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+.getContainer {
+  margin: 0.5rem 0;
+  border: 1px solid var(--getColorAccent);
+  background-color: var(--getColorLight);
+}
+.postContainer {
+  margin: 0.5rem 0;
+  border: 1px solid var(--postColorAccent);
+  background-color: var(--postColorLight);
+}
+.getHeading > p {
+  color: var(--getColorPrimary);
+}
+.postHeading > p {
+  color: var(--postColorPrimary);
+}
+.getVerb {
+  background-color: var(--getColorPrimary);
+  border-right: 1px solid var(--getColorAccent);
+  color: white;
+}
+.postVerb {
+  background-color: var(--postColorPrimary);
+  border-right: 1px solid var(--postColorAccent);
+  color: white;
 }
 
 /* ANIAMTION */
@@ -136,6 +169,7 @@ td.response {
 
 pre {
   background-color: #fff;
+  /* max-width: 800px; */
   max-height: 250px;
   overflow: auto;
 }

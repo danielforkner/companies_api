@@ -21,10 +21,6 @@ app.use((req, _, next) => {
 const apiRouter = require('./api');
 app.use('/api', apiRouter);
 
-app.use((err, req, res, next) => {
-  res.send(err);
-});
-
 // static
 app.use(express.static('public'));
 app.use('/', (_, res) =>

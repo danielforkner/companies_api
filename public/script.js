@@ -31,4 +31,26 @@ showDetailsButtons.forEach((button) => {
   });
 });
 
-// section.classList.toggle('show-text')
+const registerForm = document.getElementById('registerForm');
+registerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  let formData = new FormData(registerForm);
+  let data = {};
+  for (let [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+  console.log(JSON.stringify(data));
+  document.getElementById('loadingRegister').innerText = 'Loading...';
+  const response = await fetch('/api/users/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
+  console.log(response);
+  document.getElementById('loadingRegister').innerText = `${response.status} (${
+    response.statusText
+  }): ${response.status === 401 ? result.message : result.token}`;
+});

@@ -13,17 +13,15 @@
     <h1>Companies API Documentation</h1>
     <div class="container">
       <div class="category">
-        <h2>Users</h2>
+        <h2 class="categoryTitle">Users</h2>
         <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="usersSection">
         <div class="postContainer">
           <div class="heading postHeading">
             <h3 class="headingTitle">
-              <span class="post httpVerb">POST</span>
-              <span class="path"
-                ><a href="/api/users/register">/api/users/register</a></span
-              >
+              <span class="postVerb httpVerb">POST</span>
+              <span class="path">/api/users/register</span>
             </h3>
             <p class="showDetailsButton">Post New User</p>
           </div>
@@ -43,19 +41,33 @@
                 <tr>
                   <td class="code">200</td>
                   <td>OK</td>
-                  <td>
+                  <td class="response">
                     <pre><code class="json">
-                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
                   </td>
                 </tr>
               </table>
             </div>
+            <div class="detailSection">
+              <h4 class="postSectionTitle">Try it</h4>
+              <form id="registerForm">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" />
+                <div class="submit"><button type="submit">Register</button><div id="loadingRegister" style="white-space : nowrap"></div>
+              </form>
+              <!-- <div id="responseContainer">
+                <h4>Response</h4>
+                <pre><code id="registerResponse" class="json"></code></pre>
+              </div> -->
+            </div>
           </div>
         </div>
       </section>
       <div class="category">
-        <h2>Companies</h2>
+        <h2 class="categoryTitle">Companies</h2>
         <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="companiesSection">
@@ -169,7 +181,7 @@
         </div>
       </section>
       <div class="category">
-        <h2>Financial Data</h2>
+        <h2 class="categoryTitle">Financial Data</h2>
         <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="financialSection">
@@ -208,7 +220,7 @@
         </div>
       </section>
       <div class="category">
-        <h2>Industry Data</h2>
+        <h2 class="categoryTitle">Industry Data</h2>
         <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="industrySection">
@@ -254,7 +266,7 @@
         </div>
       </section>
       <div class="category">
-        <h2>Employees</h2>
+        <h2 class="categoryTitle">Employees</h2>
         <p class="showSectionButton">Expand</p>
       </div>
       <section class="endpoints" id="employeeSection">

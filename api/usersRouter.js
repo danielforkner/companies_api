@@ -4,19 +4,22 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = process.env;
 
 usersRouter.post('/register', async (req, res, next) => {
+  console.log('registering user');
   const { username, password } = req.body;
   try {
     // check for existing user
     const user = await Users.getUserByUsername(username);
     if (user) {
-      res.status(401).send('User already exists');
+      res
+        .status(401)
+        .send({ error: 'Unauthorized', message: 'User already exists' });
     } else {
       const newUser = await Users.create({ username, password });
       const token = jwt.sign(
         { id: newUser.id, username: newUser.username },
         JWT_SECRET
       );
-      res.status(201).send(token);
+      res.status(201).send({ token });
     }
   } catch (error) {
     next(error);
