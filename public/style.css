@@ -10,6 +10,8 @@
   --putColorAccent: rgb(245, 213, 195);
   --putColorLight: rgb(250, 240, 239);
   --putColorPrimary: rgb(191, 103, 40);
+
+  --globalAccent: rgb(185, 185, 185);
 }
 
 * {
@@ -18,13 +20,33 @@
   padding: 0;
 }
 
+#header {
+  display: flex;
+  align-items: flex-end;
+  background-color: cornsilk;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#introText {
+  max-width: 960px;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
 }
 
 .container {
-  margin: 0 2rem;
-  max-width: 1200px;
+  max-width: 960px;
+  width: 100%;
 }
 
 .category {
@@ -91,9 +113,18 @@ form {
   align-items: start;
   gap: 0.25rem;
 }
+
 .submit {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+}
+
+.loadingDiv {
+  height: 0.5rem;
+  width: 4.5rem;
+  background-size: cover;
+  /* background-image: url('./images/loading.gif'); */
 }
 
 button {
@@ -205,8 +236,12 @@ button:active {
 }
 
 /* ANIAMTION */
-.showSection {
-  /* display: block; */
+.showSectionButton:hover,
+.categoryTitle:hover,
+.path:hover,
+.showDetailsButton:hover,
+.httpVerb:hover {
+  color: var(--globalAccent);
 }
 
 .details,
@@ -266,4 +301,13 @@ td.response {
   display: flex;
   align-items: center;
   overflow: auto;
+}
+
+pre {
+  box-shadow: 2px 2px var(--globalAccent) inset;
+  padding: 0 5px;
+}
+
+pre:hover {
+  background-color: rgb(255, 240, 191);
 }

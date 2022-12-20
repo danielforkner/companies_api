@@ -14,179 +14,205 @@
   </head>
 
   <body>
-    <h1>Companies API Documentation</h1>
-    <div class="container">
-      <div class="category">
-        <h2 class="categoryTitle">Users</h2>
-        <p class="showSectionButton">Expand</p>
+    <div id="header">
+      <img
+        src="https://robohash.org/d243"
+        alt="robot logo provided by robohash.org"
+        width="75px"
+      />
+      <h1>Companies API Documentation</h1>
+    </div>
+    <div id="main">
+      <div id="introText">
+        <h2>Dynamic REST Documentation</h2>
+        <p>
+          Explore what you can do with this API, populated with fake data of
+          companies, findnancial reports, and employees.
+        </p>
       </div>
-      <section class="endpoints" id="usersSection">
-        <div class="postContainer">
-          <div class="heading postHeading">
-            <h3 class="headingTitle">
-              <span class="postVerb httpVerb">POST</span>
-              <span class="path">/api/users/register</span>
-            </h3>
-            <p class="showDetailsButton">Post New User</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="postSectionTitle">Implementation Notes</h4>
-              <p>Registers a new user and sends responds with a token</p>
+      <div class="container">
+        <div class="category">
+          <h2 class="categoryTitle">Users</h2>
+          <p class="showSectionButton">Expand</p>
+        </div>
+        <section class="endpoints" id="usersSection">
+          <div class="postContainer">
+            <div class="heading postHeading">
+              <h3 class="headingTitle">
+                <span class="postVerb httpVerb">POST</span>
+                <span class="path">/api/users/register</span>
+              </h3>
+              <p class="showDetailsButton">Post New User</p>
             </div>
-            <div class="detailSection">
-              <h4 class="postSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">201</td>
-                  <td>Created</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="postSectionTitle">Implementation Notes</h4>
+                <p>Registers a new user and sends responds with a token</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="postSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">201</td>
+                    <td>Created</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="code">401</td>
-                  <td>Unauthorized</td>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
-            <div class="detailSection">
-              <h4 class="postSectionTitle">Try it</h4>
-              <form id="registerForm">
-                <label for="username"
-                  >Username:
-                  <input type="text" name="username" id="registerUsername"
-                /></label>
-                <label for="password"
-                  >Password:
-                  <input type="password" name="password" id="registerPassword"
-                /></label>
-                <div class="submit">
-                  <button type="submit">Register</button>
-                  <div id="loadingRegister" style="white-space: nowrap"></div>
-                </div>
-              </form>
-              <div id="responseContainer">
-                <h4 class="postSectionTitle">Request URL</h4>
-                <pre class="pre_actualResponse">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="code">401</td>
+                    <td>Unauthorized</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="detailSection">
+                <h4 class="postSectionTitle">Try it</h4>
+                <form id="registerForm">
+                  <label for="username"
+                    >Username:
+                    <input type="text" name="username" id="registerUsername"
+                  /></label>
+                  <label for="password"
+                    >Password:
+                    <input
+                      type="password"
+                      name="password"
+                      id="registerPassword"
+                  /></label>
+                  <div class="submit">
+                    <button type="submit">Register</button>
+                    <div
+                      class="loadingDiv"
+                      id="loadingRegister"
+                      style="white-space: nowrap"
+                    ></div>
+                  </div>
+                </form>
+                <div id="responseContainer">
+                  <h4 class="postSectionTitle">Request URL</h4>
+                  <pre class="pre_actualResponse">
                 <code id="registerUserRequestURL" class="requestURL"></code></pre>
-                <h4 class="postSectionTitle">Response Body</h4>
-                <pre class="pre_actualResponse">
+                  <h4 class="postSectionTitle">Response Body</h4>
+                  <pre class="pre_actualResponse">
                 <code id="registerUserResponseBody" class="responseBody"></code></pre>
-                <h4 class="postSectionTitle">Response Code</h4>
-                <pre class="pre_actualResponse">
+                  <h4 class="postSectionTitle">Response Code</h4>
+                  <pre class="pre_actualResponse">
                 <code id="registerUserResponseCode" class="responseCode"></code></pre>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="putContainer">
-          <div class="heading putHeading">
-            <h3 class="headingTitle">
-              <span class="putVerb httpVerb">PUT</span>
-              <span class="path">/api/users/login</span>
-            </h3>
-            <p class="showDetailsButton">Login User</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="putSectionTitle">Implementation Notes</h4>
-              <p>Login an existing user and responds with a token</p>
+          <div class="putContainer">
+            <div class="heading putHeading">
+              <h3 class="headingTitle">
+                <span class="putVerb httpVerb">PUT</span>
+                <span class="path">/api/users/login</span>
+              </h3>
+              <p class="showDetailsButton">Login User</p>
             </div>
-            <div class="detailSection">
-              <h4 class="putSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="putSectionTitle">Implementation Notes</h4>
+                <p>Login an existing user and responds with a token</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="putSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="code">401</td>
-                  <td>Unauthorized</td>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
-            <div class="detailSection">
-              <h4 class="putSectionTitle">Try it</h4>
-              <form id="loginForm">
-                <label for="username"
-                  >Username:
-                  <input type="text" name="username" id="loginUsername"
-                /></label>
-                <label for="password"
-                  >Password:
-                  <input type="password" name="password" id="loginPassword"
-                /></label>
-                <div class="submit">
-                  <button type="submit">Login</button>
-                  <div id="loadingLogin" style="white-space: nowrap"></div>
-                </div>
-              </form>
-              <div id="responseContainer">
-                <h4 class="putSectionTitle">Request URL</h4>
-                <pre class="pre_actualResponse">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="code">401</td>
+                    <td>Unauthorized</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="detailSection">
+                <h4 class="putSectionTitle">Try it</h4>
+                <form id="loginForm">
+                  <label for="username"
+                    >Username:
+                    <input type="text" name="username" id="loginUsername"
+                  /></label>
+                  <label for="password"
+                    >Password:
+                    <input type="password" name="password" id="loginPassword"
+                  /></label>
+                  <div class="submit">
+                    <button type="submit">Login</button>
+                    <div
+                      class="loadingDiv"
+                      id="loadingLogin"
+                      style="white-space: nowrap"
+                    ></div>
+                  </div>
+                </form>
+                <div id="responseContainer">
+                  <h4 class="putSectionTitle">Request URL</h4>
+                  <pre class="pre_actualResponse">
                 <code id="loginUserRequestURL" class="requestURL"></code></pre>
-                <h4 class="putSectionTitle">Response Body</h4>
-                <pre class="pre_actualResponse">
+                  <h4 class="putSectionTitle">Response Body</h4>
+                  <pre class="pre_actualResponse">
                 <code id="loginUserResponseBody" class="responseBody"></code></pre>
-                <h4 class="putSectionTitle">Response Code</h4>
-                <pre class="pre_actualResponse">
+                  <h4 class="putSectionTitle">Response Code</h4>
+                  <pre class="pre_actualResponse">
                 <code id="loginUserResponseCode" class="responseCode"></code></pre>
+                </div>
               </div>
             </div>
           </div>
+        </section>
+        <div class="category">
+          <h2 class="categoryTitle">Companies</h2>
+          <p class="showSectionButton">Expand</p>
         </div>
-      </section>
-      <div class="category">
-        <h2 class="categoryTitle">Companies</h2>
-        <p class="showSectionButton">Expand</p>
-      </div>
-      <section class="endpoints" id="companiesSection">
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/companies</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Companies</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns an array of all companies</p>
+        <section class="endpoints" id="companiesSection">
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/companies</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Companies</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns an array of all companies</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 [
   {
     "id": "48jJZAVGXs57k&P9nPRif",
@@ -221,45 +247,48 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
     ...
 ]
                 </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a href="/api/companies" target="_blank" rel="noopener noreferrer"
-                >/api/companies</a
-              >
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/companies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/companies</a
+                >
+              </div>
             </div>
           </div>
-        </div>
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/companies/random</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Random Company</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns a random company</p>
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/companies/random</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Random Company</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns a random company</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 {
   "id": "97SsVUFKHd64f&YMNjTvq",
   "company_name": "Rath-Connelly",
@@ -271,47 +300,47 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   "phone": "281-325-3412"
   }
                 </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/companies/random"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/companies/random</a
-              >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/companies/random"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/companies/random</a
+                >
+              </div>
             </div>
           </div>
-        </div>
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/companies/:id</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Specific Company</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns the specified companies</p>
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/companies/:id</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Specific Company</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns the specified companies</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 {
   "id": "97SsVUFKHd64f&YMNjTvq",
   "company_name": "Rath-Connelly",
@@ -323,59 +352,59 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   "phone": "281-325-3412"
 }
                 </code></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="code">404</td>
-                  <td>Not Found</td>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="code">404</td>
+                    <td>Not Found</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
 
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/companies/48jJZAVGXs57k&P9nPRif"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/companies/:id</a
-              >
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/companies/48jJZAVGXs57k&P9nPRif"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/companies/:id</a
+                >
+              </div>
             </div>
           </div>
+        </section>
+        <div class="category">
+          <h2 class="categoryTitle">Financial Data</h2>
+          <p class="showSectionButton">Expand</p>
         </div>
-      </section>
-      <div class="category">
-        <h2 class="categoryTitle">Financial Data</h2>
-        <p class="showSectionButton">Expand</p>
-      </div>
-      <section class="endpoints" id="financialSection">
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/financials</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Financial Data</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns an array of all financial reports</p>
+        <section class="endpoints" id="financialSection">
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/financials</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Financial Data</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns an array of all financial reports</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 [
   {
     "id": 1,
@@ -412,51 +441,51 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   ...
 ]
                 </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/financials"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/financials</a
-              >
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/financials"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/financials</a
+                >
+              </div>
             </div>
           </div>
-        </div>
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/financials/:id</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Financials for a Company</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>
-                Returns an array of all financial reports for a specified
-                company
-              </p>
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/financials/:id</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Financials for a Company</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>
+                  Returns an array of all financial reports for a specified
+                  company
+                </p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 [
   {
     "id": 77,
@@ -468,54 +497,54 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   }
 ]
                 </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/financials/92AWJaTG8d09a&V8MOTew"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/financials/92AWJaTG8d09a&V8MOTew</a
-              >
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/financials/92AWJaTG8d09a&V8MOTew"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/financials/92AWJaTG8d09a&V8MOTew</a
+                >
+              </div>
             </div>
           </div>
+        </section>
+        <div class="category">
+          <h2 class="categoryTitle">Industry Data</h2>
+          <p class="showSectionButton">Expand</p>
         </div>
-      </section>
-      <div class="category">
-        <h2 class="categoryTitle">Industry Data</h2>
-        <p class="showSectionButton">Expand</p>
-      </div>
-      <section class="endpoints" id="industrySection">
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/industries</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Industries</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns an array of all industries</p>
+        <section class="endpoints" id="industrySection">
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/industries</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Industries</p>
             </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns an array of all industries</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
 [
   {
     "industry": "Auto Parts:O.E.M."
@@ -544,201 +573,204 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   ...
 ]
                 </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/industries"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/industries</a
-              >
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/industries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/industries</a
+                >
+              </div>
             </div>
           </div>
+        </section>
+        <div class="category">
+          <h2 class="categoryTitle">Employees</h2>
+          <p class="showSectionButton">Expand</p>
         </div>
-      </section>
-      <div class="category">
-        <h2 class="categoryTitle">Employees</h2>
-        <p class="showSectionButton">Expand</p>
+        <section class="endpoints" id="employeeSection">
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path">/api/employees</span>
+              </h3>
+              <p class="showDetailsButton">Fetch Employees</p>
+            </div>
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>Returns an array of all employees</p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 1,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Mahala",
+    "last_name": "Walford",
+    "email": "mwalford0@spotify.com",
+    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Quality Engineer"
+  },
+  {
+    "id": 2,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Desirae",
+    "last_name": "Pitkin",
+    "email": "dpitkin1@pcworld.com",
+    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
+    "department": "Marketing",
+    "title": "Database Administrator III"
+  },
+  {
+    "id": 3,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Gordy",
+    "last_name": "Salzberger",
+    "email": "gsalzberger2@imageshack.us",
+    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
+    "department": "Engineering",
+    "title": "Web Designer IV"
+  },
+  {
+    "id": 4,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Annadiane",
+    "last_name": "Hirsthouse",
+    "email": "ahirsthouse3@irs.gov",
+    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Financial Advisor"
+  },
+  ...
+]
+                </code></pre>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/industries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/industries</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="getContainer">
+            <div class="heading getHeading">
+              <h3 class="headingTitle">
+                <span class="getVerb httpVerb">GET</span>
+                <span class="path"> /api/employees/:companyId </span>
+              </h3>
+              <p class="showDetailsButton">Fetch Employees for a Company</p>
+            </div>
+            <div class="details">
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Implementation Notes</h4>
+                <p>
+                  Returns an array of all employees of the specified company
+                </p>
+              </div>
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Response Messages</h4>
+                <table>
+                  <tr>
+                    <th>HTTP Status Code</th>
+                    <th>Reason</th>
+                    <th>Sample Response</th>
+                  </tr>
+                  <tr>
+                    <td class="code">200</td>
+                    <td>OK</td>
+                    <td class="response">
+                      <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 1,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Mahala",
+    "last_name": "Walford",
+    "email": "mwalford0@spotify.com",
+    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Quality Engineer"
+  },
+  {
+    "id": 2,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Desirae",
+    "last_name": "Pitkin",
+    "email": "dpitkin1@pcworld.com",
+    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
+    "department": "Marketing",
+    "title": "Database Administrator III"
+  },
+  {
+    "id": 3,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Gordy",
+    "last_name": "Salzberger",
+    "email": "gsalzberger2@imageshack.us",
+    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
+    "department": "Engineering",
+    "title": "Web Designer IV"
+  },
+  {
+    "id": 4,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Annadiane",
+    "last_name": "Hirsthouse",
+    "email": "ahirsthouse3@irs.gov",
+    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Financial Advisor"
+  },
+  ...
+]
+                </code></pre>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="detailSection">
+                <h4 class="getSectionTitle">Try it</h4>
+                <a
+                  href="/api/employees/21ImC8IUCp19m&QEfdBbg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >/api/employees/:id</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <section class="endpoints" id="employeeSection">
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path">/api/employees</span>
-            </h3>
-            <p class="showDetailsButton">Fetch Employees</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns an array of all employees</p>
-            </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
-[
-  {
-    "id": 1,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Mahala",
-    "last_name": "Walford",
-    "email": "mwalford0@spotify.com",
-    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
-    "department": "Legal",
-    "title": "Quality Engineer"
-  },
-  {
-    "id": 2,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Desirae",
-    "last_name": "Pitkin",
-    "email": "dpitkin1@pcworld.com",
-    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
-    "department": "Marketing",
-    "title": "Database Administrator III"
-  },
-  {
-    "id": 3,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Gordy",
-    "last_name": "Salzberger",
-    "email": "gsalzberger2@imageshack.us",
-    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
-    "department": "Engineering",
-    "title": "Web Designer IV"
-  },
-  {
-    "id": 4,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Annadiane",
-    "last_name": "Hirsthouse",
-    "email": "ahirsthouse3@irs.gov",
-    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
-    "department": "Legal",
-    "title": "Financial Advisor"
-  },
-  ...
-]
-                </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/industries"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/industries</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="getContainer">
-          <div class="heading getHeading">
-            <h3 class="headingTitle">
-              <span class="getVerb httpVerb">GET</span>
-              <span class="path"> /api/employees/:companyId </span>
-            </h3>
-            <p class="showDetailsButton">Fetch Employees for a Company</p>
-          </div>
-          <div class="details">
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Implementation Notes</h4>
-              <p>Returns an array of all employees of the specified company</p>
-            </div>
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Response Messages</h4>
-              <table>
-                <tr>
-                  <th>HTTP Status Code</th>
-                  <th>Reason</th>
-                  <th>Sample Response</th>
-                </tr>
-                <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
-                  <td class="response">
-                    <pre class="pre_sampleResponse"><code class="json">
-[
-  {
-    "id": 1,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Mahala",
-    "last_name": "Walford",
-    "email": "mwalford0@spotify.com",
-    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
-    "department": "Legal",
-    "title": "Quality Engineer"
-  },
-  {
-    "id": 2,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Desirae",
-    "last_name": "Pitkin",
-    "email": "dpitkin1@pcworld.com",
-    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
-    "department": "Marketing",
-    "title": "Database Administrator III"
-  },
-  {
-    "id": 3,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Gordy",
-    "last_name": "Salzberger",
-    "email": "gsalzberger2@imageshack.us",
-    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
-    "department": "Engineering",
-    "title": "Web Designer IV"
-  },
-  {
-    "id": 4,
-    "company_id": "21ImC8IUCp19m&QEfdBbg",
-    "first_name": "Annadiane",
-    "last_name": "Hirsthouse",
-    "email": "ahirsthouse3@irs.gov",
-    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
-    "department": "Legal",
-    "title": "Financial Advisor"
-  },
-  ...
-]
-                </code></pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="detailSection">
-              <h4 class="getSectionTitle">Try it</h4>
-              <a
-                href="/api/employees/21ImC8IUCp19m&QEfdBbg"
-                target="_blank"
-                rel="noopener noreferrer"
-                >/api/employees/:id</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </body>
 </html>

@@ -60,7 +60,7 @@ const handleForm = async (event) => {
   for (let [key, value] of formData.entries()) {
     data[key] = value;
   }
-  loadingDiv.innerText = 'Loading...';
+  loadingDiv.style.backgroundImage = "url('./images/loading.gif')";
   switch (form.id) {
     case 'registerForm':
       responseObj = await fetchRegisterUser(data);
@@ -75,7 +75,7 @@ const handleForm = async (event) => {
   requestURL.innerText = response.url;
   responseCode.innerText = `${response.status} ${response.statusText}`;
   responseBody.innerText = result.message ? result.message : result.token;
-  loadingDiv.innerText = '';
+  loadingDiv.style.backgroundImage = '';
 };
 
 const forms = document.querySelectorAll('form');
