@@ -74,7 +74,7 @@ apiRouter.get('/companies/:id', async (req, res, next) => {
   try {
     let company = await Companies.getCompanyById(id);
     if (!company) {
-      res.send('No such company');
+      res.status(404).send({ error: 'Not Found', message: 'No such company' });
     } else {
       res.send(company);
     }

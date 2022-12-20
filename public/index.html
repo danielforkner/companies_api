@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" details="IE=edge" />
     <meta name="viewport" details="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Companies-API</title>
-    <script src="/script.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -39,13 +43,18 @@
                   <th>Sample Response</th>
                 </tr>
                 <tr>
-                  <td class="code">200</td>
-                  <td>OK</td>
+                  <td class="code">201</td>
+                  <td>Created</td>
                   <td class="response">
                     <pre class="pre_sampleResponse"><code class="json">
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
                   </td>
+                </tr>
+                <tr>
+                  <td class="code">401</td>
+                  <td>Unauthorized</td>
+                  <td></td>
                 </tr>
               </table>
             </div>
@@ -108,6 +117,11 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 </code></pre>
                   </td>
+                </tr>
+                <tr>
+                  <td class="code">401</td>
+                  <td>Unauthorized</td>
+                  <td></td>
                 </tr>
               </table>
             </div>
@@ -229,14 +243,47 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
             <p class="showDetailsButton">Fetch Random Company</p>
           </div>
           <div class="details">
-            <p>Returns a random company object</p>
-            <h4>Try it</h4>
-            <a
-              href="/api/companies/random"
-              target="_blank"
-              rel="noopener noreferrer"
-              >/api/companies/random</a
-            >
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns a random company</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+{
+  "id": "97SsVUFKHd64f&YMNjTvq",
+  "company_name": "Rath-Connelly",
+  "industry": "Building Products",
+  "market_cap": "$558.63M",
+  "logo_img": "http://dummyimage.com/246x100.png/cc0000/ffffff",
+  "street_address": "4384 Bayside Parkway",
+  "state": "TX",
+  "phone": "281-325-3412"
+  }
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/companies/random"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/companies/random</a
+              >
+            </div>
           </div>
         </div>
         <div class="getContainer">
@@ -248,11 +295,53 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
             <p class="showDetailsButton">Fetch Specific Company</p>
           </div>
           <div class="details">
-            <p>Returns the company with the specified id</p>
-            <h4>Try it</h4>
-            <a href="/api/companies/62KzUgS82v99c&CAtvbch"
-              >/api/companies/62KzUgS82v99c&CAtvbch</a
-            >
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns the specified companies</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+{
+  "id": "97SsVUFKHd64f&YMNjTvq",
+  "company_name": "Rath-Connelly",
+  "industry": "Building Products",
+  "market_cap": "$558.63M",
+  "logo_img": "http://dummyimage.com/246x100.png/cc0000/ffffff",
+  "street_address": "4384 Bayside Parkway",
+  "state": "TX",
+  "phone": "281-325-3412"
+}
+                </code></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">404</td>
+                  <td>Not Found</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/companies/48jJZAVGXs57k&P9nPRif"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/companies/:id</a
+              >
+            </div>
           </div>
         </div>
       </section>
@@ -265,33 +354,134 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
           <div class="heading getHeading">
             <h3 class="headingTitle">
               <span class="getVerb httpVerb">GET</span>
-              <span class="path"
-                ><a href="/api/financials">/api/financials</a></span
-              >
+              <span class="path">/api/financials</span>
             </h3>
             <p class="showDetailsButton">Fetch Financial Data</p>
           </div>
           <div class="details">
-            <p>Returns an array of all financial reports</p>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns an array of all financial reports</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 1,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "quarter": "Q122",
+    "cogs": "87",
+    "profit_margin": "2.328",
+    "revenue": "89.02536"
+  },
+  {
+    "id": 2,
+    "company_id": "739bStMZKr28j&IV4PGuj",
+    "quarter": "Q122",
+    "cogs": "85",
+    "profit_margin": "4.716",
+    "revenue": "89.0086"
+  },
+  {
+    "id": 3,
+    "company_id": "53FyQxFNZe88o&KGeWrae",
+    "quarter": "Q122",
+    "cogs": "127",
+    "profit_margin": "10.479",
+    "revenue": "140.30833"
+  },
+  {
+    "id": 4,
+    "company_id": "48jJZAVGXs57k&P9nPRif",
+    "quarter": "Q122",
+    "cogs": "132",
+    "profit_margin": "10.035",
+    "revenue": "145.2462"
+  },
+  ...
+]
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/financials"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/financials</a
+              >
+            </div>
           </div>
         </div>
         <div class="getContainer">
           <div class="heading getHeading">
             <h3 class="headingTitle">
               <span class="getVerb httpVerb">GET</span>
-              <span class="path"
-                ><a href="/api/financials/62KzUgS82v99c&CAtvbch"
-                  >/api/financials/:id</a
-                ></span
-              >
+              <span class="path">/api/financials/:id</span>
             </h3>
             <p class="showDetailsButton">Fetch Financials for a Company</p>
           </div>
           <div class="details">
-            <p>
-              Returns an array of all financial reports for the specified
-              company
-            </p>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>
+                Returns an array of all financial reports for a specified
+                company
+              </p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 77,
+    "company_id": "92AWJaTG8d09a&V8MOTew",
+    "quarter": "Q122",
+    "cogs": "143",
+    "profit_margin": "0.571",
+    "revenue": "143.81653"
+  }
+]
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/financials/92AWJaTG8d09a&V8MOTew"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/financials/92AWJaTG8d09a&V8MOTew</a
+              >
+            </div>
           </div>
         </div>
       </section>
@@ -304,9 +494,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
           <div class="heading getHeading">
             <h3 class="headingTitle">
               <span class="getVerb httpVerb">GET</span>
-              <span class="path"
-                ><a href="/api/industries">/api/industries</a></span
-              >
+              <span class="path">/api/industries</span>
             </h3>
             <p class="showDetailsButton">Fetch Industries</p>
           </div>
@@ -326,17 +514,49 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
                 <tr>
                   <td class="code">200</td>
                   <td>OK</td>
-                  <td>
-                    <pre><code class="json">
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
 [
-  { "id": 1, "name": "Agriculture" },
+  {
+    "industry": "Auto Parts:O.E.M."
+  },
+  {
+    "industry": "Automotive Aftermarket"
+  },
+  {
+    "industry": "Banks"
+  },
+  {
+    "industry": "Beverages (Production/Distribution)"
+  },
+  {
+    "industry": "Biotechnology: Electromedical & Electrotherapeutic Apparatus"
+  },
+  {
+    "industry": "Broadcasting"
+  },
+  {
+    "industry": "Building Products"
+  },
+  {
+    "industry": "Business Services"
+  },
   ...
 ]
-                </code>
-              </pre>
+                </code></pre>
                   </td>
                 </tr>
               </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/industries"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/industries</a
+              >
             </div>
           </div>
         </div>
@@ -350,30 +570,172 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
           <div class="heading getHeading">
             <h3 class="headingTitle">
               <span class="getVerb httpVerb">GET</span>
-              <span class="path"
-                ><a href="/api/employees">/api/employees</a></span
-              >
+              <span class="path">/api/employees</span>
             </h3>
             <p class="showDetailsButton">Fetch Employees</p>
           </div>
           <div class="details">
-            <p>Returns an array of all employees</p>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns an array of all employees</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 1,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Mahala",
+    "last_name": "Walford",
+    "email": "mwalford0@spotify.com",
+    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Quality Engineer"
+  },
+  {
+    "id": 2,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Desirae",
+    "last_name": "Pitkin",
+    "email": "dpitkin1@pcworld.com",
+    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
+    "department": "Marketing",
+    "title": "Database Administrator III"
+  },
+  {
+    "id": 3,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Gordy",
+    "last_name": "Salzberger",
+    "email": "gsalzberger2@imageshack.us",
+    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
+    "department": "Engineering",
+    "title": "Web Designer IV"
+  },
+  {
+    "id": 4,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Annadiane",
+    "last_name": "Hirsthouse",
+    "email": "ahirsthouse3@irs.gov",
+    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Financial Advisor"
+  },
+  ...
+]
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/industries"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/industries</a
+              >
+            </div>
           </div>
         </div>
         <div class="getContainer">
           <div class="heading getHeading">
             <h3 class="headingTitle">
               <span class="getVerb httpVerb">GET</span>
-              <span class="path"
-                ><a href="/api/employees/21ImC8IUCp19m&QEfdBbg">
-                  /api/employees/:companyId</a
-                ></span
-              >
+              <span class="path"> /api/employees/:companyId </span>
             </h3>
             <p class="showDetailsButton">Fetch Employees for a Company</p>
           </div>
           <div class="details">
-            <p>Returns an array of all employees of the specified company</p>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Implementation Notes</h4>
+              <p>Returns an array of all employees of the specified company</p>
+            </div>
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Response Messages</h4>
+              <table>
+                <tr>
+                  <th>HTTP Status Code</th>
+                  <th>Reason</th>
+                  <th>Sample Response</th>
+                </tr>
+                <tr>
+                  <td class="code">200</td>
+                  <td>OK</td>
+                  <td class="response">
+                    <pre class="pre_sampleResponse"><code class="json">
+[
+  {
+    "id": 1,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Mahala",
+    "last_name": "Walford",
+    "email": "mwalford0@spotify.com",
+    "avatar": "https://robohash.org/sitconsequaturconsequatur.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Quality Engineer"
+  },
+  {
+    "id": 2,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Desirae",
+    "last_name": "Pitkin",
+    "email": "dpitkin1@pcworld.com",
+    "avatar": "https://robohash.org/fugiatquiexplicabo.png?size=50x50&set=set1",
+    "department": "Marketing",
+    "title": "Database Administrator III"
+  },
+  {
+    "id": 3,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Gordy",
+    "last_name": "Salzberger",
+    "email": "gsalzberger2@imageshack.us",
+    "avatar": "https://robohash.org/velitabenim.png?size=50x50&set=set1",
+    "department": "Engineering",
+    "title": "Web Designer IV"
+  },
+  {
+    "id": 4,
+    "company_id": "21ImC8IUCp19m&QEfdBbg",
+    "first_name": "Annadiane",
+    "last_name": "Hirsthouse",
+    "email": "ahirsthouse3@irs.gov",
+    "avatar": "https://robohash.org/reprehenderitautofficiis.png?size=50x50&set=set1",
+    "department": "Legal",
+    "title": "Financial Advisor"
+  },
+  ...
+]
+                </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="detailSection">
+              <h4 class="getSectionTitle">Try it</h4>
+              <a
+                href="/api/employees/21ImC8IUCp19m&QEfdBbg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >/api/employees/:id</a
+              >
+            </div>
           </div>
         </div>
       </section>
