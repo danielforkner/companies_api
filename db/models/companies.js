@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 const { DB_URL } = require('../connections');
 
-const getAllCompanies = async () => {
+const getAllCompanies = async (Client) => {
   const client = new Client(DB_URL);
   console.log('querying the database');
   try {
@@ -18,7 +18,7 @@ const getAllCompanies = async () => {
   }
 };
 
-const getRandomCompany = async () => {
+const getRandomCompany = async (Client) => {
   const client = new Client(DB_URL);
   console.log('querying the database');
   try {
@@ -52,7 +52,7 @@ const getCompanyById = async (id) => {
   }
 };
 
-const getAllCompanyIds = async () => {
+const getAllCompanyIds = async (Client) => {
   const client = new Client(DB_URL);
   console.log('querying the database');
   try {
