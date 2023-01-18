@@ -10,6 +10,18 @@ const getAllEmployees = async () => {
   }
 };
 
+const getRandomEmployee = async () => {
+  console.log('querying the database');
+  try {
+    const { rows } = await pool.query(
+      'SELECT * FROM employees ORDER BY RANDOM() LIMIT 1'
+    );
+    return rows[0];
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const getEmployeesByCompanyId = async (companyId) => {
   console.log('querying the database');
   try {
@@ -23,4 +35,8 @@ const getEmployeesByCompanyId = async (companyId) => {
   }
 };
 
-module.exports = { getAllEmployees, getEmployeesByCompanyId };
+module.exports = {
+  getAllEmployees,
+  getRandomEmployee,
+  getEmployeesByCompanyId,
+};
