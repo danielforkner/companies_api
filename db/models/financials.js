@@ -1,8 +1,6 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+const { client } = require('../client');
 
 const getAllFinancials = async () => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
     await client.connect();
@@ -17,7 +15,6 @@ const getAllFinancials = async () => {
 };
 
 const getFinancialsById = async (id) => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
     await client.connect();

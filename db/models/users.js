@@ -1,8 +1,6 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+const { client } = require('../client');
 
 const create = async ({ username, password }) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to register a user');
   try {
     await client.connect();
@@ -20,7 +18,6 @@ const create = async ({ username, password }) => {
 };
 
 const getUserByUsername = async (username) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to get a user by username');
   try {
     await client.connect();
@@ -39,7 +36,6 @@ const getUserByUsername = async (username) => {
 };
 
 const updateLoginTimestamp = async (id) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to update a user login timestamp');
   try {
     await client.connect();

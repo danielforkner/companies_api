@@ -1,4 +1,5 @@
 const { Companies, Financials, Industries, Employees } = require('../db');
+const { client } = require('../db/client');
 
 const apiRouter = require('express').Router();
 console.log('apiRouter loaded');

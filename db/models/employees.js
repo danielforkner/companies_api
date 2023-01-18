@@ -1,8 +1,6 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+const { client } = require('../client');
 
 const getAllEmployees = async () => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
     await client.connect();
@@ -17,7 +15,6 @@ const getAllEmployees = async () => {
 };
 
 const getEmployeesByCompanyId = async (companyId) => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
     await client.connect();

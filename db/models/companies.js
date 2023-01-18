@@ -1,11 +1,9 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+// const { client } = require('../client');
 
-const getAllCompanies = async (Client) => {
-  const client = new Client(DB_URL);
+const getAllCompanies = async () => {
   console.log('querying the database');
   try {
-    await client.connect();
+    // await client.connect();
     const { rows } = await client.query(
       'SELECT * FROM companies ORDER BY company_name ASC'
     );
@@ -14,18 +12,19 @@ const getAllCompanies = async (Client) => {
     throw new Error(error);
   } finally {
     console.log('closing the database connection');
-    await client.end();
+    // await client.end();
   }
 };
 
-const getRandomCompany = async (Client) => {
-  const client = new Client(DB_URL);
-  console.log('querying the database');
+const getRandomCompany = async () => {
+  console.log('querying the database for random company');
   try {
     await client.connect();
     const {
       rows: [company],
     } = await client.query(`SELECT * FROM companies ORDER BY RANDOM() LIMIT 1`);
+    console.log('GOT RESULTS');
+    console.log(company);
     return company;
   } catch (error) {
     throw new Error(error);
@@ -36,7 +35,6 @@ const getRandomCompany = async (Client) => {
 };
 
 const getCompanyById = async (id) => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
     await client.connect();
@@ -52,8 +50,7 @@ const getCompanyById = async (id) => {
   }
 };
 
-const getAllCompanyIds = async (Client) => {
-  const client = new Client(DB_URL);
+const getAllCompanyIds = async () => {
   console.log('querying the database');
   try {
     await client.connect();
