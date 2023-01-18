@@ -4,9 +4,10 @@ const { pool } = require('./client.js');
 
 // drop tables
 const dropTables = async () => {
-  console.log('Dropping Tables...');
   try {
+    console.log('Dropping Tables...');
     return await pool.query(`
+      DROP TABLE IF EXISTS users;  
       DROP TABLE IF EXISTS employees;
       DROP TABLE IF EXISTS financials;
       DROP TABLE IF EXISTS companies;
@@ -17,8 +18,8 @@ const dropTables = async () => {
 };
 // create tables
 const createTables = async () => {
-  console.log('Creating Tables...');
   try {
+    console.log('Creating Tables...');
     await pool.query(`create table companies (
     id VARCHAR(50) UNIQUE NOT NULL,
     company_name VARCHAR(255) UNIQUE NOT NULL,
@@ -62,16 +63,97 @@ CREATE TABLE users (
   }
 };
 // insert dummy data
-const insertCompanies = () => {};
-const insertFinancials = () => {};
-const insertEmployees = () => {};
+const insertCompanies = async () => {
+  const valuesString = Object.keys(companies[0])
+    .map((key, index) => {
+      return `$${index + 1}`;
+    })
+    .join(', ');
+
+  try {
+    console.log('Inserting Companies...');
+    const promises = companies.map((company) => {
+      return pool.query(
+        `
+        INSERT INTO companies (id, company_name, industry, market_cap, logo_img, street_address, state, phone)
+        VALUES (${valuesString});
+        `,
+        Object.values(company)
+      );
+    });
+
+    await Promise.all(promises);
+    console.log('Companies Inserted!');
+  } catch (error) {
+    console.log('Error Inserting Companies!');
+    console.error(error);
+  }
+};
+const insertFinancials = async () => {
+  const valuesString = Object.keys(financials[0])
+    .map((key, index) => {
+      return `$${index + 1}`;
+    })
+    .join(', ');
+
+  try {
+    console.log('Inserting Financials...');
+    const promises = financials.map((financial) => {
+      return pool.query(
+        `
+        INSERT INTO financials (company_id, quarter, cogs, profit_margin, revenue)
+        VALUES (${valuesString});
+        `,
+        Object.values(financial)
+      );
+    });
+
+    await Promise.all(promises);
+    console.log('Financials Inserted!');
+  } catch (error) {
+    console.log('Error Inserting Financials!');
+    console.error(error);
+  }
+};
+const insertEmployees = async () => {
+  const valuesString = Object.keys(employees[0])
+    .map((key, index) => {
+      return `$${index + 1}`;
+    })
+    .join(', ');
+
+  try {
+    console.log('Inserting Employees...');
+    employees.forEach(async (employee) => {
+      await pool.query(
+        `
+        INSERT INTO employees (company_id, first_name, last_name, email, avatar, department, title)
+        VALUES (${valuesString});
+        `,
+        Object.values(employee)
+      );
+    });
+
+    // await Promise.all(promises);
+    console.log('Employees Inserted!');
+  } catch (error) {
+    console.log('Error Inserting Employees!');
+    console.error(error);
+  }
+};
 
 const seed = async () => {
   try {
     await dropTables();
     await createTables();
+    await insertCompanies();
+    await insertFinancials();
+    // await insertEmployees();
   } catch (error) {
     console.error('Error Seeding the DB!');
+  } finally {
+    console.log('Closing Pool...');
+    pool.end();
   }
 };
 
