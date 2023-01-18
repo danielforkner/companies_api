@@ -151,12 +151,10 @@ const seed = async () => {
   } catch (error) {
     console.error('Error Seeding the DB!');
   } finally {
-    console.log('Closing Pool...');
-    pool.end();
+    // console.log('Closing Pool...');
+    // await pool.end();
   }
 };
-
-seed();
 
 module.exports = {
   seed,

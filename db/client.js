@@ -21,6 +21,5 @@ const config = process.env.DEVELOPMENT
       connectionTimeoutMillis: 2000,
     };
 const pool = new Pool(config);
-console.log(config);
 
 module.exports = { pool };

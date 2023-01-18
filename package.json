@@ -4,7 +4,7 @@
   "description": "an api layer for fake company data",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "webpack mode=production",
     "build:dev": "webpack mode=development",
     "start:dev": "nodemon index.js"
