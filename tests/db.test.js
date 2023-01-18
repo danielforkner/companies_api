@@ -1,5 +1,11 @@
 require('dotenv').config();
-const { Companies, Financials, Employees, Industries } = require('../db');
+const {
+  Companies,
+  Financials,
+  Employees,
+  Industries,
+  Users,
+} = require('../db');
 const { pool } = require('../db/client.js');
 const { seed } = require('../db/seed.js');
 
@@ -75,5 +81,37 @@ describe('Employees', () => {
       '21ImC8IUCp19m&QEfdBbg'
     );
     expect(employees.length).toBe(100);
+  });
+});
+
+describe('Users', () => {
+  let username = 'test';
+  let password = 'test';
+  let id;
+
+  test('createUser', async () => {
+    let user = await Users.create({
+      username,
+      password,
+    });
+    id = user.id;
+    expect(user).toBeDefined();
+    expect(user.username).toBe(username);
+    // password is hashed by the server, check API tests to ensure it is hashed
+    expect(user.password).toBe(password);
+  });
+
+  test('getUserByUsername', async () => {
+    let user = await Users.getUserByUsername(username);
+    expect(user).toBeDefined();
+    expect(user.username).toBe(username);
+    // password is hashed by the server, check API tests to ensure it is hashed
+    expect(user.password).toBe(password);
+  });
+
+  test('login', async () => {
+    let login = await Users.updateLoginTimestamp(id);
+    expect(typeof login).toBe('object');
+    expect(login.last_login).toBeDefined();
   });
 });

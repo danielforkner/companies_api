@@ -3,11 +3,13 @@ const { pool } = require('../client');
 const create = async ({ username, password }) => {
   console.log('querying the database to register a user');
   try {
-    const { rows } = await pool.query(
-      `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING username`,
+    const {
+      rows: [user],
+    } = await pool.query(
+      `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *`,
       [username, password]
     );
-    return rows;
+    return user;
   } catch (error) {
     throw new Error(error);
   }
