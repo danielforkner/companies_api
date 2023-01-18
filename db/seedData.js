@@ -1106,13 +1106,6 @@ const financials = [
     revenue: 14.13633,
   },
   {
-    company_id: '12JDCBN2Or68b&AAG11dg',
-    quarter: 'Q122',
-    cogs: 37,
-    profit_margin: 5.149,
-    revenue: 38.90513,
-  },
-  {
     company_id: '577bJcR33f45p&Z5q3cpq',
     quarter: 'Q122',
     cogs: 26,
@@ -1335,13 +1328,6 @@ const financials = [
     cogs: 77,
     profit_margin: 4.083,
     revenue: 80.14391,
-  },
-  {
-    company_id: '70ayDADAXw95w&QGbVqon',
-    quarter: 'Q122',
-    cogs: 21,
-    profit_margin: 1.062,
-    revenue: 21.22302,
   },
   {
     company_id: '29CPLQZX7l27l&ATXLyth',
