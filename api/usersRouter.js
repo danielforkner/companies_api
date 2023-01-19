@@ -11,7 +11,7 @@ usersRouter.post('/register', async (req, res, next) => {
     const user = await Users.getUserByUsername(username);
     if (user) {
       res
-        .status(401)
+        .status(409)
         .send({ error: 'Unauthorized', message: 'User already exists' });
     } else {
       const newUser = await Users.create({ username, password });
@@ -44,12 +44,10 @@ usersRouter.put('/login', async (req, res, next) => {
       );
       res.send({ token });
     } else {
-      res
-        .status(401)
-        .send({
-          error: 'Unauthorized',
-          message: 'Incorrect Username or Password',
-        });
+      res.status(401).send({
+        error: 'Unauthorized',
+        message: 'Incorrect Username or Password',
+      });
     }
   } catch (error) {
     next(error);
