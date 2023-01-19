@@ -107,7 +107,7 @@ describe('Users', () => {
     expect(response.status).toBe(201);
   });
 
-  test('register user the second time', async () => {
+  test('register user the second time fails', async () => {
     try {
       const response = await axios.post(
         'http://localhost:3001/api/users/register',
@@ -122,7 +122,7 @@ describe('Users', () => {
     }
   });
 
-  test('login user', async () => {
+  test('login user succeeds', async () => {
     const response = await axios.put('http://localhost:3001/api/users/login', {
       username,
       password,
@@ -130,5 +130,33 @@ describe('Users', () => {
     let token = response.data.token;
     expect(response.status).toBe(200);
     expect(token).toBeDefined();
+  });
+
+  test('login user fails with incorrect password', async () => {
+    try {
+      const response = await axios.put(
+        'http://localhost:3001/api/users/login',
+        {
+          username,
+          password: 'p@ssWerd',
+        }
+      );
+    } catch (error) {
+      expect(error.message).toBe('Request failed with status code 401');
+    }
+  });
+
+  test('login user fails with incorrect username', async () => {
+    try {
+      const response = await axios.put(
+        'http://localhost:3001/api/users/login',
+        {
+          username: 't3st',
+          password,
+        }
+      );
+    } catch (error) {
+      expect(error.message).toBe('Request failed with status code 401');
+    }
   });
 });
