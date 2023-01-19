@@ -1,60 +1,44 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+const { pool } = require('../client');
 
 const create = async ({ username, password }) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to register a user');
   try {
-    await client.connect();
-    const { rows } = await client.query(
-      `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING username`,
+    const {
+      rows: [user],
+    } = await pool.query(
+      `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *`,
       [username, password]
     );
-    return rows;
+    return user;
   } catch (error) {
     throw new Error(error);
-  } finally {
-    console.log('closing the database connection');
-    await client.end();
   }
 };
 
 const getUserByUsername = async (username) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to get a user by username');
   try {
-    await client.connect();
     const {
       rows: [user],
-    } = await client.query(`SELECT * FROM users WHERE username = $1`, [
-      username,
-    ]);
+    } = await pool.query(`SELECT * FROM users WHERE username = $1`, [username]);
     return user;
   } catch (error) {
     throw new Error(error);
-  } finally {
-    console.log('closing the database connection');
-    await client.end();
   }
 };
 
 const updateLoginTimestamp = async (id) => {
-  const client = new Client(DB_URL);
   console.log('querying the database to update a user login timestamp');
   try {
-    await client.connect();
     const {
       rows: [last_login],
-    } = await client.query(
+    } = await pool.query(
       `UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = $1 RETURNING last_login`,
       [id]
     );
     return last_login;
   } catch (error) {
     throw new Error(error);
-  } finally {
-    console.log('closing the database connection');
-    await client.end();
   }
 };
 

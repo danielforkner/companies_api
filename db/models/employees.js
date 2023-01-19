@@ -1,37 +1,42 @@
-const { Client } = require('pg');
-const { DB_URL } = require('../connections');
+const { pool } = require('../client');
 
 const getAllEmployees = async () => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
-    await client.connect();
-    const { rows } = await client.query('SELECT * FROM employees');
+    const { rows } = await pool.query('SELECT * FROM employees');
     return rows;
   } catch (error) {
     throw new Error(error);
-  } finally {
-    console.log('closing the database connection');
-    await client.end();
+  }
+};
+
+const getRandomEmployee = async () => {
+  console.log('querying the database');
+  try {
+    const { rows } = await pool.query(
+      'SELECT * FROM employees ORDER BY RANDOM() LIMIT 1'
+    );
+    return rows[0];
+  } catch (error) {
+    throw new Error(error);
   }
 };
 
 const getEmployeesByCompanyId = async (companyId) => {
-  const client = new Client(DB_URL);
   console.log('querying the database');
   try {
-    await client.connect();
-    const { rows } = await client.query(
+    const { rows } = await pool.query(
       `SELECT * FROM employees WHERE company_id = $1`,
       [companyId]
     );
     return rows;
   } catch (error) {
     throw new Error(error);
-  } finally {
-    console.log('closing the database connection');
-    await client.end();
   }
 };
 
-module.exports = { getAllEmployees, getEmployeesByCompanyId };
+module.exports = {
+  getAllEmployees,
+  getRandomEmployee,
+  getEmployeesByCompanyId,
+};
